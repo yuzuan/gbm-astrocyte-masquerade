@@ -1,0 +1,10 @@
+# Python 3.11
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+anndata
+h5py
+harmonypy
+leidenalg

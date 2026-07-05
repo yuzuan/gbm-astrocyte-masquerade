@@ -1,0 +1,16 @@
+# input / intermediate data (download from GEO or regenerate; not tracked)
+data/
+*.h5ad
+*.loom
+*.npz
+*.mtx
+*.mtx.gz
+*.tsv.gz
+*.csv.gz
+*.txt.gz
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
