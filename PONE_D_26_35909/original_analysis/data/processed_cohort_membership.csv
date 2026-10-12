@@ -1,0 +1,8 @@
+object_name,source_accession,dataset_filter_values,selected_for_current_study,n_cells_or_nuclei_in_object,n_patients_in_object,regions_in_object
+scGBM_processed,GSE162631,GSE162631,True,81782,4,Peritumoral; Tumor
+scGBM_processed,GSE273274,GSE273274,True,53753,3,Peritumoral; Tumor
+snGBM_processed,GSE276177,GSE276177,True,30775,2,Peritumoral; Tumor
+snGBM_processed,GSE286419,GSE286419,True,38145,4,Peritumoral; Tumor
+regional_processed,GSE241037,GSE241037,False,41734,4,Core; Edge; Peripheral
+regional_processed,GSE274986,GSE274987,True,107685,6,Core; Edge; Peripheral
+regional_processed,GSE274987,GSE274987,True,50109,4,Core; Edge; Peripheral

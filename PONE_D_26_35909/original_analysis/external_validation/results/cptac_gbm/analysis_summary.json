@@ -1,0 +1,60 @@
+{
+  "dataset": "CPTAC-GBM PDC000204",
+  "matrix": "proteome_mssm_per_gene_clean.v4.0.tsv.gz",
+  "imputation": "none; clean matrix used",
+  "n_tumor": 99,
+  "n_normal": 10,
+  "design_samples_excluded_after_proteome_qc": [
+    "excluded sample"
+  ],
+  "tgfb2": {
+    "gene": "TGFB2",
+    "n_tumor": 99,
+    "n_normal": 10,
+    "tumor_median": 0.0938674208706093,
+    "normal_median": -0.8180886714117339,
+    "median_difference": 0.9119560922823432,
+    "median_difference_ci_low": 0.6826775244103461,
+    "median_difference_ci_high": 1.137766711472262,
+    "tumor_mean": 0.13244424636714197,
+    "normal_mean": -0.860832713730465,
+    "mannwhitney_u": 904.0,
+    "mannwhitney_p": 1.8017721964907624e-05,
+    "median_permutation_p": 0.0005199948000519994,
+    "rank_biserial": 0.8262626262626263,
+    "mannwhitney_q": 3.603544392981525e-05,
+    "median_permutation_q": 0.0010399896001039989
+  },
+  "tgfb2_plex_matched": {
+    "n_plexes": 10,
+    "median_difference": 0.851458641242739,
+    "n_positive": 10,
+    "exact_signflip_p": 0.001953125
+  },
+  "associations": [
+    {
+      "score": "astrocytic_protein_score",
+      "markers": "GFAP;AQP4;S100B;SLC1A3;ALDH1L1;GLUL;HOPX",
+      "n": 99,
+      "spearman_rho": -0.04274582560296846,
+      "spearman_p": 0.6744079450997971,
+      "spearman_q": 0.6744079450997971
+    },
+    {
+      "score": "myeloid_protein_score",
+      "markers": "AIF1;CD163;CD14;CSF1R;TYROBP;FCER1G;LST1",
+      "n": 99,
+      "spearman_rho": 0.14635745207173778,
+      "spearman_p": 0.14830621201584962,
+      "spearman_q": 0.4449186360475489
+    },
+    {
+      "score": "tgfbr_protein_score",
+      "markers": "TGFBR1",
+      "n": 99,
+      "spearman_rho": 0.05896103896103896,
+      "spearman_p": 0.5621108944587061,
+      "spearman_q": 0.6744079450997971
+    }
+  ]
+}

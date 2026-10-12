@@ -1,0 +1,8 @@
+{
+  "parameter_combinations": 32,
+  "all_meta_p_below_0_05": true,
+  "minimum_positive_cohorts": 4,
+  "minimum_meta_z": 3.08273408804113,
+  "maximum_meta_p_value": 0.00205108342326343,
+  "maximum_leave_one_out_p_value": 0.034728241904034104
+}

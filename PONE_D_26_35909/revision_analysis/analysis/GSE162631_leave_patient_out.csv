@@ -1,0 +1,4 @@
+omitted,n,median_difference,mean_difference,positive_patients,inference
+P1,2,-0.0285326801240443,-0.0285326801240443,0,descriptive n=2; no p value
+P2,2,0.0278988517820835,0.0278988517820835,1,descriptive n=2; no p value
+P4,2,0.0146856755018234,0.0146856755018234,1,descriptive n=2; no p value

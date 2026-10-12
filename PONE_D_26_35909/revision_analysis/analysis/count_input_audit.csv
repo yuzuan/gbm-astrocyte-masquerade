@@ -1,0 +1,5 @@
+object,n_cells,n_full_genes,nonnegative_integer_counts,max_abs_X_reconstruction_error,mean_abs_X_reconstruction_error,input_scope
+scGBM_GSE162631_GSE273274.h5ad,135535,29632,True,3.182621828301535e-07,8.807619792174006e-09,retained cells and genes in complete project AnnData
+snGBM_GSE276177_GSE286419.h5ad,68920,32163,True,3.149548790659651e-07,9.72465143036388e-09,retained cells and genes in complete project AnnData
+regional_GSE274987_GSE241037.h5ad,157794,30212,True,3.227119051985028e-07,7.891629781670162e-09,retained cells and genes in complete project AnnData
+GSE211376 GEO counts,39355,27102,True,0.0,0.0,public count matrix

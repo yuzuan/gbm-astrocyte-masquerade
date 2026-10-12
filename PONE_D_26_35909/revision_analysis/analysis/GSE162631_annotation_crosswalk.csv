@@ -1,0 +1,900 @@
+patient,region,original_value,uniform_state,n_cells,original_field
+P1,Peritumoral,Endothelial,Excluded,136,Major_category
+P1,Peritumoral,Low-quality,Excluded,1,Major_category
+P1,Peritumoral,Microglia,Excluded,283,Major_category
+P1,Peritumoral,Monocyte,Excluded,24,Major_category
+P1,Peritumoral,Neutrophil,Excluded,2,Major_category
+P1,Peritumoral,Pericyte,Excluded,55,Major_category
+P1,Peritumoral,T/NK,Excluded,13,Major_category
+P1,Peritumoral,TAM/Macrophage,Excluded,7426,Major_category
+P1,Peritumoral,Tumor,AC-like,12,Major_category
+P1,Peritumoral,Tumor,MES-like,1,Major_category
+P1,Peritumoral,Tumor,NPC-like,2,Major_category
+P1,Tumor,Doublet,Excluded,2,Major_category
+P1,Tumor,Endothelial,Excluded,1137,Major_category
+P1,Tumor,Low-quality,Excluded,15,Major_category
+P1,Tumor,Microglia,Excluded,609,Major_category
+P1,Tumor,Monocyte,Excluded,2168,Major_category
+P1,Tumor,Neutrophil,Excluded,71,Major_category
+P1,Tumor,Pericyte,Excluded,679,Major_category
+P1,Tumor,T/NK,Excluded,122,Major_category
+P1,Tumor,TAM/Macrophage,Excluded,9191,Major_category
+P1,Tumor,Tumor,AC-like,32,Major_category
+P1,Tumor,Tumor,Ambiguous,43,Major_category
+P1,Tumor,Tumor,MES-like,700,Major_category
+P1,Tumor,Tumor,NPC-like,10,Major_category
+P1,Tumor,Tumor,OPC-like,5,Major_category
+P2,Peritumoral,Endothelial,Excluded,8,Major_category
+P2,Peritumoral,Microglia,Excluded,1634,Major_category
+P2,Peritumoral,Monocyte,Excluded,20,Major_category
+P2,Peritumoral,Neutrophil,Excluded,1,Major_category
+P2,Peritumoral,Pericyte,Excluded,2,Major_category
+P2,Peritumoral,T/NK,Excluded,34,Major_category
+P2,Peritumoral,TAM/Macrophage,Excluded,7053,Major_category
+P2,Peritumoral,Tumor,AC-like,3,Major_category
+P2,Peritumoral,Tumor,Ambiguous,9,Major_category
+P2,Peritumoral,Tumor,MES-like,1,Major_category
+P2,Peritumoral,Tumor,NPC-like,20,Major_category
+P2,Peritumoral,Tumor,OPC-like,2,Major_category
+P2,Tumor,Endothelial,Excluded,124,Major_category
+P2,Tumor,Low-quality,Excluded,2,Major_category
+P2,Tumor,Microglia,Excluded,901,Major_category
+P2,Tumor,Monocyte,Excluded,601,Major_category
+P2,Tumor,Neutrophil,Excluded,27,Major_category
+P2,Tumor,Pericyte,Excluded,20,Major_category
+P2,Tumor,T/NK,Excluded,77,Major_category
+P2,Tumor,TAM/Macrophage,Excluded,5958,Major_category
+P2,Tumor,Tumor,AC-like,43,Major_category
+P2,Tumor,Tumor,Ambiguous,104,Major_category
+P2,Tumor,Tumor,MES-like,414,Major_category
+P2,Tumor,Tumor,NPC-like,119,Major_category
+P2,Tumor,Tumor,OPC-like,4,Major_category
+P3,Peritumoral,Endothelial,Excluded,93,Major_category
+P3,Peritumoral,Low-quality,Excluded,1,Major_category
+P3,Peritumoral,Microglia,Excluded,291,Major_category
+P3,Peritumoral,Monocyte,Excluded,70,Major_category
+P3,Peritumoral,Neutrophil,Excluded,9,Major_category
+P3,Peritumoral,Pericyte,Excluded,22,Major_category
+P3,Peritumoral,T/NK,Excluded,7,Major_category
+P3,Peritumoral,TAM/Macrophage,Excluded,9812,Major_category
+P3,Peritumoral,Tumor,AC-like,38,Major_category
+P3,Peritumoral,Tumor,Ambiguous,1,Major_category
+P3,Peritumoral,Tumor,NPC-like,1,Major_category
+P3,Tumor,Endothelial,Excluded,51,Major_category
+P3,Tumor,Low-quality,Excluded,10,Major_category
+P3,Tumor,Microglia,Excluded,810,Major_category
+P3,Tumor,Monocyte,Excluded,565,Major_category
+P3,Tumor,Neutrophil,Excluded,27,Major_category
+P3,Tumor,Pericyte,Excluded,6,Major_category
+P3,Tumor,T/NK,Excluded,254,Major_category
+P3,Tumor,TAM/Macrophage,Excluded,7346,Major_category
+P3,Tumor,Tumor,AC-like,5,Major_category
+P3,Tumor,Tumor,Ambiguous,14,Major_category
+P3,Tumor,Tumor,MES-like,244,Major_category
+P3,Tumor,Tumor,NPC-like,4,Major_category
+P4,Peritumoral,Doublet,Excluded,63,Major_category
+P4,Peritumoral,Endothelial,Excluded,1183,Major_category
+P4,Peritumoral,Low-quality,Excluded,1,Major_category
+P4,Peritumoral,Microglia,Excluded,440,Major_category
+P4,Peritumoral,Monocyte,Excluded,69,Major_category
+P4,Peritumoral,Neutrophil,Excluded,77,Major_category
+P4,Peritumoral,Pericyte,Excluded,86,Major_category
+P4,Peritumoral,T/NK,Excluded,73,Major_category
+P4,Peritumoral,TAM/Macrophage,Excluded,11904,Major_category
+P4,Peritumoral,Tumor,AC-like,97,Major_category
+P4,Peritumoral,Tumor,Ambiguous,27,Major_category
+P4,Peritumoral,Tumor,MES-like,20,Major_category
+P4,Peritumoral,Tumor,NPC-like,10,Major_category
+P4,Peritumoral,Tumor,OPC-like,13,Major_category
+P4,Tumor,Endothelial,Excluded,111,Major_category
+P4,Tumor,Low-quality,Excluded,49,Major_category
+P4,Tumor,Microglia,Excluded,1292,Major_category
+P4,Tumor,Monocyte,Excluded,1277,Major_category
+P4,Tumor,Neutrophil,Excluded,1575,Major_category
+P4,Tumor,Pericyte,Excluded,5,Major_category
+P4,Tumor,T/NK,Excluded,154,Major_category
+P4,Tumor,TAM/Macrophage,Excluded,3315,Major_category
+P4,Tumor,Tumor,AC-like,25,Major_category
+P4,Tumor,Tumor,Ambiguous,37,Major_category
+P4,Tumor,Tumor,MES-like,257,Major_category
+P4,Tumor,Tumor,NPC-like,18,Major_category
+P4,Tumor,Tumor,OPC-like,3,Major_category
+P1,Peritumoral,AC,AC-like,8,Minor_cluster
+P1,Peritumoral,AC,NPC-like,1,Minor_cluster
+P1,Peritumoral,Activated EC,Excluded,20,Minor_cluster
+P1,Peritumoral,BBB-like EC,Excluded,1,Minor_cluster
+P1,Peritumoral,CD8 effector,Excluded,7,Minor_cluster
+P1,Peritumoral,CD8 pre-exhausted,Excluded,1,Minor_cluster
+P1,Peritumoral,CNS Pericyte,Excluded,1,Minor_cluster
+P1,Peritumoral,Classic Pericyte,Excluded,41,Minor_cluster
+P1,Peritumoral,Classical Mono,Excluded,24,Minor_cluster
+P1,Peritumoral,Complement-Scavenger TAM,Excluded,144,Minor_cluster
+P1,Peritumoral,HS-UPR TAM,Excluded,1634,Minor_cluster
+P1,Peritumoral,Homeostatic MG,Excluded,283,Minor_cluster
+P1,Peritumoral,IFN-resp TAM,Excluded,16,Minor_cluster
+P1,Peritumoral,Lipid-metabolism TAM,Excluded,2257,Minor_cluster
+P1,Peritumoral,Low-quality T,Excluded,1,Minor_cluster
+P1,Peritumoral,Mg-Inflam TAM,Excluded,3043,Minor_cluster
+P1,Peritumoral,Mural cell,Excluded,13,Minor_cluster
+P1,Peritumoral,Myeloid contamination,Excluded,5,Minor_cluster
+P1,Peritumoral,Neutrophil,Excluded,2,Minor_cluster
+P1,Peritumoral,Other TAM,Excluded,160,Minor_cluster
+P1,Peritumoral,Systemic-Inflam TAM,Excluded,172,Minor_cluster
+P1,Peritumoral,Venous EC,Excluded,115,Minor_cluster
+P1,Peritumoral,,AC-like,4,Minor_cluster
+P1,Peritumoral,,MES-like,1,Minor_cluster
+P1,Peritumoral,,NPC-like,1,Minor_cluster
+P1,Tumor,AC,AC-like,6,Minor_cluster
+P1,Tumor,AC,Ambiguous,2,Minor_cluster
+P1,Tumor,AC,MES-like,50,Minor_cluster
+P1,Tumor,AC,NPC-like,1,Minor_cluster
+P1,Tumor,Activated EC,Excluded,620,Minor_cluster
+P1,Tumor,BBB-like EC,Excluded,154,Minor_cluster
+P1,Tumor,CD8 effector,Excluded,25,Minor_cluster
+P1,Tumor,CD8 pre-exhausted,Excluded,44,Minor_cluster
+P1,Tumor,Classic Pericyte,Excluded,315,Minor_cluster
+P1,Tumor,Classical Mono,Excluded,2168,Minor_cluster
+P1,Tumor,Complement-Scavenger TAM,Excluded,6255,Minor_cluster
+P1,Tumor,Cycling T,Excluded,2,Minor_cluster
+P1,Tumor,Doublet (Ig+),Excluded,2,Minor_cluster
+P1,Tumor,HS-UPR TAM,Excluded,156,Minor_cluster
+P1,Tumor,Homeostatic MG,Excluded,609,Minor_cluster
+P1,Tumor,IFN-resp TAM,Excluded,5,Minor_cluster
+P1,Tumor,Lipid-metabolism TAM,Excluded,440,Minor_cluster
+P1,Tumor,Low-quality T,Excluded,15,Minor_cluster
+P1,Tumor,Mg-Inflam TAM,Excluded,641,Minor_cluster
+P1,Tumor,Mural cell,Excluded,364,Minor_cluster
+P1,Tumor,Myeloid contamination,Excluded,43,Minor_cluster
+P1,Tumor,NK,Excluded,8,Minor_cluster
+P1,Tumor,Neutrophil,Excluded,71,Minor_cluster
+P1,Tumor,OPC,AC-like,2,Minor_cluster
+P1,Tumor,OPC,MES-like,3,Minor_cluster
+P1,Tumor,Other TAM,Excluded,40,Minor_cluster
+P1,Tumor,Systemic-Inflam TAM,Excluded,1654,Minor_cluster
+P1,Tumor,Tip cell,Excluded,211,Minor_cluster
+P1,Tumor,Venous EC,Excluded,152,Minor_cluster
+P1,Tumor,,AC-like,24,Minor_cluster
+P1,Tumor,,Ambiguous,41,Minor_cluster
+P1,Tumor,,MES-like,647,Minor_cluster
+P1,Tumor,,NPC-like,9,Minor_cluster
+P1,Tumor,,OPC-like,5,Minor_cluster
+P2,Peritumoral,AC,AC-like,2,Minor_cluster
+P2,Peritumoral,AC,Ambiguous,2,Minor_cluster
+P2,Peritumoral,AC,NPC-like,1,Minor_cluster
+P2,Peritumoral,AC,OPC-like,2,Minor_cluster
+P2,Peritumoral,Activated EC,Excluded,6,Minor_cluster
+P2,Peritumoral,CD8 effector,Excluded,23,Minor_cluster
+P2,Peritumoral,CD8 pre-exhausted,Excluded,5,Minor_cluster
+P2,Peritumoral,Classic Pericyte,Excluded,1,Minor_cluster
+P2,Peritumoral,Classical Mono,Excluded,20,Minor_cluster
+P2,Peritumoral,Complement-Scavenger TAM,Excluded,131,Minor_cluster
+P2,Peritumoral,Cycling T,Excluded,4,Minor_cluster
+P2,Peritumoral,HS-UPR TAM,Excluded,440,Minor_cluster
+P2,Peritumoral,Homeostatic MG,Excluded,1634,Minor_cluster
+P2,Peritumoral,IFN-resp TAM,Excluded,8,Minor_cluster
+P2,Peritumoral,Lipid-metabolism TAM,Excluded,2208,Minor_cluster
+P2,Peritumoral,Mg-Inflam TAM,Excluded,3192,Minor_cluster
+P2,Peritumoral,Mural cell,Excluded,1,Minor_cluster
+P2,Peritumoral,Myeloid contamination,Excluded,2,Minor_cluster
+P2,Peritumoral,Neutrophil,Excluded,1,Minor_cluster
+P2,Peritumoral,Other TAM,Excluded,56,Minor_cluster
+P2,Peritumoral,Systemic-Inflam TAM,Excluded,1018,Minor_cluster
+P2,Peritumoral,Venous EC,Excluded,2,Minor_cluster
+P2,Peritumoral,,AC-like,1,Minor_cluster
+P2,Peritumoral,,Ambiguous,7,Minor_cluster
+P2,Peritumoral,,MES-like,1,Minor_cluster
+P2,Peritumoral,,NPC-like,19,Minor_cluster
+P2,Tumor,AC,MES-like,13,Minor_cluster
+P2,Tumor,Activated EC,Excluded,27,Minor_cluster
+P2,Tumor,BBB-like EC,Excluded,56,Minor_cluster
+P2,Tumor,CD8 effector,Excluded,32,Minor_cluster
+P2,Tumor,CD8 pre-exhausted,Excluded,10,Minor_cluster
+P2,Tumor,Classic Pericyte,Excluded,15,Minor_cluster
+P2,Tumor,Classical Mono,Excluded,601,Minor_cluster
+P2,Tumor,Complement-Scavenger TAM,Excluded,2137,Minor_cluster
+P2,Tumor,Cycling T,Excluded,4,Minor_cluster
+P2,Tumor,HS-UPR TAM,Excluded,149,Minor_cluster
+P2,Tumor,Homeostatic MG,Excluded,901,Minor_cluster
+P2,Tumor,IFN-resp TAM,Excluded,1,Minor_cluster
+P2,Tumor,Lipid-metabolism TAM,Excluded,600,Minor_cluster
+P2,Tumor,Low-quality T,Excluded,2,Minor_cluster
+P2,Tumor,Mg-Inflam TAM,Excluded,1099,Minor_cluster
+P2,Tumor,Mural cell,Excluded,5,Minor_cluster
+P2,Tumor,Myeloid contamination,Excluded,12,Minor_cluster
+P2,Tumor,NK,Excluded,19,Minor_cluster
+P2,Tumor,Neutrophil,Excluded,27,Minor_cluster
+P2,Tumor,Other TAM,Excluded,15,Minor_cluster
+P2,Tumor,Systemic-Inflam TAM,Excluded,1957,Minor_cluster
+P2,Tumor,Tip cell,Excluded,11,Minor_cluster
+P2,Tumor,Venous EC,Excluded,30,Minor_cluster
+P2,Tumor,,AC-like,43,Minor_cluster
+P2,Tumor,,Ambiguous,104,Minor_cluster
+P2,Tumor,,MES-like,401,Minor_cluster
+P2,Tumor,,NPC-like,119,Minor_cluster
+P2,Tumor,,OPC-like,4,Minor_cluster
+P3,Peritumoral,AC,AC-like,21,Minor_cluster
+P3,Peritumoral,Activated EC,Excluded,9,Minor_cluster
+P3,Peritumoral,CD8 effector,Excluded,4,Minor_cluster
+P3,Peritumoral,CD8 pre-exhausted,Excluded,1,Minor_cluster
+P3,Peritumoral,Classic Pericyte,Excluded,16,Minor_cluster
+P3,Peritumoral,Classical Mono,Excluded,70,Minor_cluster
+P3,Peritumoral,Complement-Scavenger TAM,Excluded,116,Minor_cluster
+P3,Peritumoral,HS-UPR TAM,Excluded,240,Minor_cluster
+P3,Peritumoral,Homeostatic MG,Excluded,291,Minor_cluster
+P3,Peritumoral,IFN-resp TAM,Excluded,4,Minor_cluster
+P3,Peritumoral,Lipid-metabolism TAM,Excluded,774,Minor_cluster
+P3,Peritumoral,Low-quality T,Excluded,1,Minor_cluster
+P3,Peritumoral,Mg-Inflam TAM,Excluded,8375,Minor_cluster
+P3,Peritumoral,Mural cell,Excluded,6,Minor_cluster
+P3,Peritumoral,Myeloid contamination,Excluded,1,Minor_cluster
+P3,Peritumoral,NK,Excluded,1,Minor_cluster
+P3,Peritumoral,Neutrophil,Excluded,9,Minor_cluster
+P3,Peritumoral,Other TAM,Excluded,42,Minor_cluster
+P3,Peritumoral,Systemic-Inflam TAM,Excluded,261,Minor_cluster
+P3,Peritumoral,Venous EC,Excluded,84,Minor_cluster
+P3,Peritumoral,,AC-like,17,Minor_cluster
+P3,Peritumoral,,Ambiguous,1,Minor_cluster
+P3,Peritumoral,,NPC-like,1,Minor_cluster
+P3,Tumor,AC,AC-like,1,Minor_cluster
+P3,Tumor,AC,MES-like,15,Minor_cluster
+P3,Tumor,Activated EC,Excluded,8,Minor_cluster
+P3,Tumor,BBB-like EC,Excluded,26,Minor_cluster
+P3,Tumor,CD8 effector,Excluded,134,Minor_cluster
+P3,Tumor,CD8 pre-exhausted,Excluded,62,Minor_cluster
+P3,Tumor,Classic Pericyte,Excluded,2,Minor_cluster
+P3,Tumor,Classical Mono,Excluded,565,Minor_cluster
+P3,Tumor,Complement-Scavenger TAM,Excluded,3076,Minor_cluster
+P3,Tumor,Cycling T,Excluded,14,Minor_cluster
+P3,Tumor,HS-UPR TAM,Excluded,1053,Minor_cluster
+P3,Tumor,Homeostatic MG,Excluded,810,Minor_cluster
+P3,Tumor,IFN-resp TAM,Excluded,2,Minor_cluster
+P3,Tumor,Lipid-metabolism TAM,Excluded,1457,Minor_cluster
+P3,Tumor,Low-quality T,Excluded,10,Minor_cluster
+P3,Tumor,Mg-Inflam TAM,Excluded,639,Minor_cluster
+P3,Tumor,Mural cell,Excluded,4,Minor_cluster
+P3,Tumor,Myeloid contamination,Excluded,31,Minor_cluster
+P3,Tumor,NK,Excluded,13,Minor_cluster
+P3,Tumor,Neutrophil,Excluded,27,Minor_cluster
+P3,Tumor,Other TAM,Excluded,32,Minor_cluster
+P3,Tumor,Systemic-Inflam TAM,Excluded,1087,Minor_cluster
+P3,Tumor,Tip cell,Excluded,3,Minor_cluster
+P3,Tumor,Venous EC,Excluded,14,Minor_cluster
+P3,Tumor,,AC-like,4,Minor_cluster
+P3,Tumor,,Ambiguous,14,Minor_cluster
+P3,Tumor,,MES-like,229,Minor_cluster
+P3,Tumor,,NPC-like,4,Minor_cluster
+P4,Peritumoral,AC,AC-like,45,Minor_cluster
+P4,Peritumoral,AC,Ambiguous,14,Minor_cluster
+P4,Peritumoral,AC,MES-like,11,Minor_cluster
+P4,Peritumoral,AC,NPC-like,2,Minor_cluster
+P4,Peritumoral,AC,OPC-like,5,Minor_cluster
+P4,Peritumoral,Activated EC,Excluded,842,Minor_cluster
+P4,Peritumoral,BBB-like EC,Excluded,7,Minor_cluster
+P4,Peritumoral,CD8 effector,Excluded,1,Minor_cluster
+P4,Peritumoral,CD8 pre-exhausted,Excluded,1,Minor_cluster
+P4,Peritumoral,Classic Pericyte,Excluded,7,Minor_cluster
+P4,Peritumoral,Classical Mono,Excluded,69,Minor_cluster
+P4,Peritumoral,Complement-Scavenger TAM,Excluded,751,Minor_cluster
+P4,Peritumoral,Doublet (Ig+),Excluded,63,Minor_cluster
+P4,Peritumoral,HS-UPR TAM,Excluded,317,Minor_cluster
+P4,Peritumoral,Homeostatic MG,Excluded,440,Minor_cluster
+P4,Peritumoral,IFN-resp TAM,Excluded,7,Minor_cluster
+P4,Peritumoral,Lipid-metabolism TAM,Excluded,2579,Minor_cluster
+P4,Peritumoral,Low-quality T,Excluded,1,Minor_cluster
+P4,Peritumoral,Mg-Inflam TAM,Excluded,5509,Minor_cluster
+P4,Peritumoral,Mural cell,Excluded,79,Minor_cluster
+P4,Peritumoral,Myeloid contamination,Excluded,71,Minor_cluster
+P4,Peritumoral,Neutrophil,Excluded,77,Minor_cluster
+P4,Peritumoral,Other TAM,Excluded,20,Minor_cluster
+P4,Peritumoral,Systemic-Inflam TAM,Excluded,2721,Minor_cluster
+P4,Peritumoral,Tip cell,Excluded,40,Minor_cluster
+P4,Peritumoral,Venous EC,Excluded,294,Minor_cluster
+P4,Peritumoral,,AC-like,52,Minor_cluster
+P4,Peritumoral,,Ambiguous,13,Minor_cluster
+P4,Peritumoral,,MES-like,9,Minor_cluster
+P4,Peritumoral,,NPC-like,8,Minor_cluster
+P4,Peritumoral,,OPC-like,8,Minor_cluster
+P4,Tumor,AC,Ambiguous,1,Minor_cluster
+P4,Tumor,AC,MES-like,35,Minor_cluster
+P4,Tumor,AC,NPC-like,1,Minor_cluster
+P4,Tumor,Activated EC,Excluded,65,Minor_cluster
+P4,Tumor,BBB-like EC,Excluded,26,Minor_cluster
+P4,Tumor,CD8 effector,Excluded,52,Minor_cluster
+P4,Tumor,CD8 pre-exhausted,Excluded,50,Minor_cluster
+P4,Tumor,Classic Pericyte,Excluded,1,Minor_cluster
+P4,Tumor,Classical Mono,Excluded,1277,Minor_cluster
+P4,Tumor,Complement-Scavenger TAM,Excluded,2280,Minor_cluster
+P4,Tumor,Cycling T,Excluded,3,Minor_cluster
+P4,Tumor,HS-UPR TAM,Excluded,81,Minor_cluster
+P4,Tumor,Homeostatic MG,Excluded,1292,Minor_cluster
+P4,Tumor,IFN-resp TAM,Excluded,4,Minor_cluster
+P4,Tumor,Lipid-metabolism TAM,Excluded,130,Minor_cluster
+P4,Tumor,Low-quality T,Excluded,49,Minor_cluster
+P4,Tumor,Mg-Inflam TAM,Excluded,283,Minor_cluster
+P4,Tumor,Mural cell,Excluded,4,Minor_cluster
+P4,Tumor,Myeloid contamination,Excluded,18,Minor_cluster
+P4,Tumor,NK,Excluded,31,Minor_cluster
+P4,Tumor,Neutrophil,Excluded,1575,Minor_cluster
+P4,Tumor,Other TAM,Excluded,28,Minor_cluster
+P4,Tumor,Systemic-Inflam TAM,Excluded,509,Minor_cluster
+P4,Tumor,Tip cell,Excluded,13,Minor_cluster
+P4,Tumor,Venous EC,Excluded,7,Minor_cluster
+P4,Tumor,,AC-like,25,Minor_cluster
+P4,Tumor,,Ambiguous,36,Minor_cluster
+P4,Tumor,,MES-like,222,Minor_cluster
+P4,Tumor,,NPC-like,17,Minor_cluster
+P4,Tumor,,OPC-like,3,Minor_cluster
+P1,Peritumoral,Endothelial,Excluded,119,cell_type_original
+P1,Peritumoral,Macrophage,Excluded,6465,cell_type_original
+P1,Peritumoral,Microglia,Excluded,1230,cell_type_original
+P1,Peritumoral,Monocyte,Excluded,37,cell_type_original
+P1,Peritumoral,NK/T,Excluded,14,cell_type_original
+P1,Peritumoral,Neuronal,AC-like,1,cell_type_original
+P1,Peritumoral,Neutrophil,Excluded,3,cell_type_original
+P1,Peritumoral,Pericyte,Excluded,72,cell_type_original
+P1,Peritumoral,Prol.tumor,AC-like,3,cell_type_original
+P1,Peritumoral,Prol.tumor,MES-like,1,cell_type_original
+P1,Peritumoral,Prol.tumor,NPC-like,1,cell_type_original
+P1,Peritumoral,Tumor,AC-like,8,cell_type_original
+P1,Peritumoral,Tumor,NPC-like,1,cell_type_original
+P1,Tumor,Endothelial,Excluded,1292,cell_type_original
+P1,Tumor,Macrophage,Excluded,7940,cell_type_original
+P1,Tumor,Microglia,Excluded,2223,cell_type_original
+P1,Tumor,Microglia,MES-like,2,cell_type_original
+P1,Tumor,Monocyte,Excluded,1855,cell_type_original
+P1,Tumor,NK/T,Excluded,137,cell_type_original
+P1,Tumor,Neuronal,AC-like,3,cell_type_original
+P1,Tumor,Neuronal,Ambiguous,1,cell_type_original
+P1,Tumor,Neuronal,MES-like,7,cell_type_original
+P1,Tumor,Neutrophil,Excluded,21,cell_type_original
+P1,Tumor,Oligodendrocyte,MES-like,1,cell_type_original
+P1,Tumor,Pericyte,Excluded,526,cell_type_original
+P1,Tumor,Prol.tumor,AC-like,21,cell_type_original
+P1,Tumor,Prol.tumor,Ambiguous,40,cell_type_original
+P1,Tumor,Prol.tumor,MES-like,639,cell_type_original
+P1,Tumor,Prol.tumor,NPC-like,9,cell_type_original
+P1,Tumor,Prol.tumor,OPC-like,5,cell_type_original
+P1,Tumor,Tumor,AC-like,8,cell_type_original
+P1,Tumor,Tumor,Ambiguous,2,cell_type_original
+P1,Tumor,Tumor,MES-like,51,cell_type_original
+P1,Tumor,Tumor,NPC-like,1,cell_type_original
+P2,Peritumoral,Endothelial,Excluded,8,cell_type_original
+P2,Peritumoral,Macrophage,Excluded,7169,cell_type_original
+P2,Peritumoral,Microglia,Excluded,1498,cell_type_original
+P2,Peritumoral,Monocyte,Excluded,40,cell_type_original
+P2,Peritumoral,NK/T,Excluded,34,cell_type_original
+P2,Peritumoral,Neutrophil,Excluded,1,cell_type_original
+P2,Peritumoral,Pericyte,Excluded,2,cell_type_original
+P2,Peritumoral,Prol.tumor,AC-like,1,cell_type_original
+P2,Peritumoral,Prol.tumor,Ambiguous,7,cell_type_original
+P2,Peritumoral,Prol.tumor,MES-like,1,cell_type_original
+P2,Peritumoral,Prol.tumor,NPC-like,19,cell_type_original
+P2,Peritumoral,Tumor,AC-like,2,cell_type_original
+P2,Peritumoral,Tumor,Ambiguous,2,cell_type_original
+P2,Peritumoral,Tumor,NPC-like,1,cell_type_original
+P2,Peritumoral,Tumor,OPC-like,2,cell_type_original
+P2,Tumor,Endothelial,Excluded,121,cell_type_original
+P2,Tumor,Macrophage,Excluded,5595,cell_type_original
+P2,Tumor,Microglia,Excluded,1341,cell_type_original
+P2,Tumor,Monocyte,Excluded,544,cell_type_original
+P2,Tumor,NK/T,Excluded,79,cell_type_original
+P2,Tumor,Neuronal,Ambiguous,4,cell_type_original
+P2,Tumor,Neuronal,MES-like,5,cell_type_original
+P2,Tumor,Neuronal,OPC-like,1,cell_type_original
+P2,Tumor,Neutrophil,Excluded,7,cell_type_original
+P2,Tumor,Oligodendrocyte,Ambiguous,1,cell_type_original
+P2,Tumor,Pericyte,Excluded,23,cell_type_original
+P2,Tumor,Prol.tumor,AC-like,43,cell_type_original
+P2,Tumor,Prol.tumor,Ambiguous,99,cell_type_original
+P2,Tumor,Prol.tumor,MES-like,396,cell_type_original
+P2,Tumor,Prol.tumor,NPC-like,119,cell_type_original
+P2,Tumor,Prol.tumor,OPC-like,3,cell_type_original
+P2,Tumor,Tumor,MES-like,13,cell_type_original
+P3,Peritumoral,Endothelial,Excluded,85,cell_type_original
+P3,Peritumoral,Macrophage,Excluded,8938,cell_type_original
+P3,Peritumoral,Microglia,Excluded,1158,cell_type_original
+P3,Peritumoral,Monocyte,Excluded,81,cell_type_original
+P3,Peritumoral,NK/T,Excluded,8,cell_type_original
+P3,Peritumoral,Neuronal,AC-like,4,cell_type_original
+P3,Peritumoral,Neutrophil,Excluded,5,cell_type_original
+P3,Peritumoral,Pericyte,Excluded,30,cell_type_original
+P3,Peritumoral,Prol.tumor,AC-like,13,cell_type_original
+P3,Peritumoral,Prol.tumor,Ambiguous,1,cell_type_original
+P3,Peritumoral,Prol.tumor,NPC-like,1,cell_type_original
+P3,Peritumoral,Tumor,AC-like,21,cell_type_original
+P3,Tumor,Endothelial,Excluded,48,cell_type_original
+P3,Tumor,Macrophage,Excluded,6477,cell_type_original
+P3,Tumor,Microglia,Excluded,1640,cell_type_original
+P3,Tumor,Microglia,MES-like,1,cell_type_original
+P3,Tumor,Monocyte,Excluded,612,cell_type_original
+P3,Tumor,NK/T,Excluded,264,cell_type_original
+P3,Tumor,Neuronal,Ambiguous,1,cell_type_original
+P3,Tumor,Neuronal,MES-like,2,cell_type_original
+P3,Tumor,Neutrophil,Excluded,19,cell_type_original
+P3,Tumor,Oligodendrocyte,MES-like,2,cell_type_original
+P3,Tumor,Pericyte,Excluded,9,cell_type_original
+P3,Tumor,Prol.tumor,AC-like,4,cell_type_original
+P3,Tumor,Prol.tumor,Ambiguous,13,cell_type_original
+P3,Tumor,Prol.tumor,MES-like,225,cell_type_original
+P3,Tumor,Prol.tumor,NPC-like,4,cell_type_original
+P3,Tumor,Tumor,AC-like,1,cell_type_original
+P3,Tumor,Tumor,MES-like,14,cell_type_original
+P4,Peritumoral,Endothelial,Excluded,1205,cell_type_original
+P4,Peritumoral,Macrophage,Excluded,11342,cell_type_original
+P4,Peritumoral,Microglia,Excluded,1004,cell_type_original
+P4,Peritumoral,Monocyte,Excluded,116,cell_type_original
+P4,Peritumoral,NK/T,Excluded,74,cell_type_original
+P4,Peritumoral,Neuronal,AC-like,3,cell_type_original
+P4,Peritumoral,Neuronal,Ambiguous,2,cell_type_original
+P4,Peritumoral,Neuronal,MES-like,4,cell_type_original
+P4,Peritumoral,Neuronal,OPC-like,1,cell_type_original
+P4,Peritumoral,Neutrophil,Excluded,28,cell_type_original
+P4,Peritumoral,Oligodendrocyte,AC-like,2,cell_type_original
+P4,Peritumoral,Oligodendrocyte,Ambiguous,1,cell_type_original
+P4,Peritumoral,Oligodendrocyte,MES-like,1,cell_type_original
+P4,Peritumoral,Oligodendrocyte,OPC-like,5,cell_type_original
+P4,Peritumoral,Pericyte,Excluded,127,cell_type_original
+P4,Peritumoral,Prol.tumor,AC-like,47,cell_type_original
+P4,Peritumoral,Prol.tumor,Ambiguous,10,cell_type_original
+P4,Peritumoral,Prol.tumor,MES-like,4,cell_type_original
+P4,Peritumoral,Prol.tumor,NPC-like,8,cell_type_original
+P4,Peritumoral,Prol.tumor,OPC-like,2,cell_type_original
+P4,Peritumoral,Tumor,AC-like,45,cell_type_original
+P4,Peritumoral,Tumor,Ambiguous,14,cell_type_original
+P4,Peritumoral,Tumor,MES-like,11,cell_type_original
+P4,Peritumoral,Tumor,NPC-like,2,cell_type_original
+P4,Peritumoral,Tumor,OPC-like,5,cell_type_original
+P4,Tumor,Endothelial,Excluded,107,cell_type_original
+P4,Tumor,Macrophage,Excluded,3409,cell_type_original
+P4,Tumor,Microglia,Excluded,1491,cell_type_original
+P4,Tumor,Microglia,MES-like,1,cell_type_original
+P4,Tumor,Monocyte,Excluded,1193,cell_type_original
+P4,Tumor,NK/T,Excluded,203,cell_type_original
+P4,Tumor,Neuronal,AC-like,2,cell_type_original
+P4,Tumor,Neuronal,Ambiguous,3,cell_type_original
+P4,Tumor,Neuronal,MES-like,10,cell_type_original
+P4,Tumor,Neutrophil,Excluded,1366,cell_type_original
+P4,Tumor,Oligodendrocyte,OPC-like,2,cell_type_original
+P4,Tumor,Pericyte,Excluded,9,cell_type_original
+P4,Tumor,Prol.tumor,AC-like,23,cell_type_original
+P4,Tumor,Prol.tumor,Ambiguous,33,cell_type_original
+P4,Tumor,Prol.tumor,MES-like,212,cell_type_original
+P4,Tumor,Prol.tumor,NPC-like,17,cell_type_original
+P4,Tumor,Prol.tumor,OPC-like,1,cell_type_original
+P4,Tumor,Tumor,Ambiguous,1,cell_type_original
+P4,Tumor,Tumor,MES-like,34,cell_type_original
+P4,Tumor,Tumor,NPC-like,1,cell_type_original
+P1,Peritumoral,Endothelial,Excluded,119,cell_type_cnv_corrected
+P1,Peritumoral,Macrophage,Excluded,6465,cell_type_cnv_corrected
+P1,Peritumoral,Microglia,Excluded,1230,cell_type_cnv_corrected
+P1,Peritumoral,Monocyte,Excluded,37,cell_type_cnv_corrected
+P1,Peritumoral,NK/T,Excluded,14,cell_type_cnv_corrected
+P1,Peritumoral,NPC-like Tumor,AC-like,1,cell_type_cnv_corrected
+P1,Peritumoral,Neutrophil,Excluded,3,cell_type_cnv_corrected
+P1,Peritumoral,Pericyte,Excluded,72,cell_type_cnv_corrected
+P1,Peritumoral,Prol.tumor,AC-like,3,cell_type_cnv_corrected
+P1,Peritumoral,Prol.tumor,MES-like,1,cell_type_cnv_corrected
+P1,Peritumoral,Prol.tumor,NPC-like,1,cell_type_cnv_corrected
+P1,Peritumoral,Tumor,AC-like,8,cell_type_cnv_corrected
+P1,Peritumoral,Tumor,NPC-like,1,cell_type_cnv_corrected
+P1,Tumor,Endothelial,Excluded,1292,cell_type_cnv_corrected
+P1,Tumor,Macrophage,Excluded,7940,cell_type_cnv_corrected
+P1,Tumor,Microglia,Excluded,2223,cell_type_cnv_corrected
+P1,Tumor,Monocyte,Excluded,1855,cell_type_cnv_corrected
+P1,Tumor,NK/T,Excluded,137,cell_type_cnv_corrected
+P1,Tumor,NPC-like Tumor,AC-like,3,cell_type_cnv_corrected
+P1,Tumor,NPC-like Tumor,Ambiguous,1,cell_type_cnv_corrected
+P1,Tumor,NPC-like Tumor,MES-like,7,cell_type_cnv_corrected
+P1,Tumor,Neutrophil,Excluded,21,cell_type_cnv_corrected
+P1,Tumor,OPC-like Tumor,MES-like,1,cell_type_cnv_corrected
+P1,Tumor,Pericyte,Excluded,526,cell_type_cnv_corrected
+P1,Tumor,Prol.tumor,AC-like,21,cell_type_cnv_corrected
+P1,Tumor,Prol.tumor,Ambiguous,40,cell_type_cnv_corrected
+P1,Tumor,Prol.tumor,MES-like,639,cell_type_cnv_corrected
+P1,Tumor,Prol.tumor,NPC-like,9,cell_type_cnv_corrected
+P1,Tumor,Prol.tumor,OPC-like,5,cell_type_cnv_corrected
+P1,Tumor,Tumor,AC-like,8,cell_type_cnv_corrected
+P1,Tumor,Tumor,Ambiguous,2,cell_type_cnv_corrected
+P1,Tumor,Tumor,MES-like,51,cell_type_cnv_corrected
+P1,Tumor,Tumor,NPC-like,1,cell_type_cnv_corrected
+P1,Tumor,Tumor (from cl0),MES-like,2,cell_type_cnv_corrected
+P2,Peritumoral,Endothelial,Excluded,8,cell_type_cnv_corrected
+P2,Peritumoral,Macrophage,Excluded,7169,cell_type_cnv_corrected
+P2,Peritumoral,Microglia,Excluded,1498,cell_type_cnv_corrected
+P2,Peritumoral,Monocyte,Excluded,40,cell_type_cnv_corrected
+P2,Peritumoral,NK/T,Excluded,34,cell_type_cnv_corrected
+P2,Peritumoral,Neutrophil,Excluded,1,cell_type_cnv_corrected
+P2,Peritumoral,Pericyte,Excluded,2,cell_type_cnv_corrected
+P2,Peritumoral,Prol.tumor,AC-like,1,cell_type_cnv_corrected
+P2,Peritumoral,Prol.tumor,Ambiguous,7,cell_type_cnv_corrected
+P2,Peritumoral,Prol.tumor,MES-like,1,cell_type_cnv_corrected
+P2,Peritumoral,Prol.tumor,NPC-like,19,cell_type_cnv_corrected
+P2,Peritumoral,Tumor,AC-like,2,cell_type_cnv_corrected
+P2,Peritumoral,Tumor,Ambiguous,2,cell_type_cnv_corrected
+P2,Peritumoral,Tumor,NPC-like,1,cell_type_cnv_corrected
+P2,Peritumoral,Tumor,OPC-like,2,cell_type_cnv_corrected
+P2,Tumor,Endothelial,Excluded,121,cell_type_cnv_corrected
+P2,Tumor,Macrophage,Excluded,5595,cell_type_cnv_corrected
+P2,Tumor,Microglia,Excluded,1341,cell_type_cnv_corrected
+P2,Tumor,Monocyte,Excluded,544,cell_type_cnv_corrected
+P2,Tumor,NK/T,Excluded,79,cell_type_cnv_corrected
+P2,Tumor,NPC-like Tumor,Ambiguous,4,cell_type_cnv_corrected
+P2,Tumor,NPC-like Tumor,MES-like,5,cell_type_cnv_corrected
+P2,Tumor,NPC-like Tumor,OPC-like,1,cell_type_cnv_corrected
+P2,Tumor,Neutrophil,Excluded,7,cell_type_cnv_corrected
+P2,Tumor,OPC-like Tumor,Ambiguous,1,cell_type_cnv_corrected
+P2,Tumor,Pericyte,Excluded,23,cell_type_cnv_corrected
+P2,Tumor,Prol.tumor,AC-like,43,cell_type_cnv_corrected
+P2,Tumor,Prol.tumor,Ambiguous,99,cell_type_cnv_corrected
+P2,Tumor,Prol.tumor,MES-like,396,cell_type_cnv_corrected
+P2,Tumor,Prol.tumor,NPC-like,119,cell_type_cnv_corrected
+P2,Tumor,Prol.tumor,OPC-like,3,cell_type_cnv_corrected
+P2,Tumor,Tumor,MES-like,13,cell_type_cnv_corrected
+P3,Peritumoral,Endothelial,Excluded,85,cell_type_cnv_corrected
+P3,Peritumoral,Macrophage,Excluded,8938,cell_type_cnv_corrected
+P3,Peritumoral,Microglia,Excluded,1158,cell_type_cnv_corrected
+P3,Peritumoral,Monocyte,Excluded,81,cell_type_cnv_corrected
+P3,Peritumoral,NK/T,Excluded,8,cell_type_cnv_corrected
+P3,Peritumoral,NPC-like Tumor,AC-like,4,cell_type_cnv_corrected
+P3,Peritumoral,Neutrophil,Excluded,5,cell_type_cnv_corrected
+P3,Peritumoral,Pericyte,Excluded,30,cell_type_cnv_corrected
+P3,Peritumoral,Prol.tumor,AC-like,13,cell_type_cnv_corrected
+P3,Peritumoral,Prol.tumor,Ambiguous,1,cell_type_cnv_corrected
+P3,Peritumoral,Prol.tumor,NPC-like,1,cell_type_cnv_corrected
+P3,Peritumoral,Tumor,AC-like,21,cell_type_cnv_corrected
+P3,Tumor,Endothelial,Excluded,48,cell_type_cnv_corrected
+P3,Tumor,Macrophage,Excluded,6477,cell_type_cnv_corrected
+P3,Tumor,Microglia,Excluded,1640,cell_type_cnv_corrected
+P3,Tumor,Monocyte,Excluded,612,cell_type_cnv_corrected
+P3,Tumor,NK/T,Excluded,264,cell_type_cnv_corrected
+P3,Tumor,NPC-like Tumor,Ambiguous,1,cell_type_cnv_corrected
+P3,Tumor,NPC-like Tumor,MES-like,2,cell_type_cnv_corrected
+P3,Tumor,Neutrophil,Excluded,19,cell_type_cnv_corrected
+P3,Tumor,OPC-like Tumor,MES-like,2,cell_type_cnv_corrected
+P3,Tumor,Pericyte,Excluded,9,cell_type_cnv_corrected
+P3,Tumor,Prol.tumor,AC-like,4,cell_type_cnv_corrected
+P3,Tumor,Prol.tumor,Ambiguous,13,cell_type_cnv_corrected
+P3,Tumor,Prol.tumor,MES-like,225,cell_type_cnv_corrected
+P3,Tumor,Prol.tumor,NPC-like,4,cell_type_cnv_corrected
+P3,Tumor,Tumor,AC-like,1,cell_type_cnv_corrected
+P3,Tumor,Tumor,MES-like,14,cell_type_cnv_corrected
+P3,Tumor,Tumor (from cl0),MES-like,1,cell_type_cnv_corrected
+P4,Peritumoral,Endothelial,Excluded,1205,cell_type_cnv_corrected
+P4,Peritumoral,Macrophage,Excluded,11342,cell_type_cnv_corrected
+P4,Peritumoral,Microglia,Excluded,1004,cell_type_cnv_corrected
+P4,Peritumoral,Monocyte,Excluded,116,cell_type_cnv_corrected
+P4,Peritumoral,NK/T,Excluded,74,cell_type_cnv_corrected
+P4,Peritumoral,NPC-like Tumor,AC-like,3,cell_type_cnv_corrected
+P4,Peritumoral,NPC-like Tumor,Ambiguous,2,cell_type_cnv_corrected
+P4,Peritumoral,NPC-like Tumor,MES-like,4,cell_type_cnv_corrected
+P4,Peritumoral,NPC-like Tumor,OPC-like,1,cell_type_cnv_corrected
+P4,Peritumoral,Neutrophil,Excluded,28,cell_type_cnv_corrected
+P4,Peritumoral,OPC-like Tumor,AC-like,2,cell_type_cnv_corrected
+P4,Peritumoral,OPC-like Tumor,Ambiguous,1,cell_type_cnv_corrected
+P4,Peritumoral,OPC-like Tumor,MES-like,1,cell_type_cnv_corrected
+P4,Peritumoral,OPC-like Tumor,OPC-like,5,cell_type_cnv_corrected
+P4,Peritumoral,Pericyte,Excluded,127,cell_type_cnv_corrected
+P4,Peritumoral,Prol.tumor,AC-like,47,cell_type_cnv_corrected
+P4,Peritumoral,Prol.tumor,Ambiguous,10,cell_type_cnv_corrected
+P4,Peritumoral,Prol.tumor,MES-like,4,cell_type_cnv_corrected
+P4,Peritumoral,Prol.tumor,NPC-like,8,cell_type_cnv_corrected
+P4,Peritumoral,Prol.tumor,OPC-like,2,cell_type_cnv_corrected
+P4,Peritumoral,Tumor,AC-like,45,cell_type_cnv_corrected
+P4,Peritumoral,Tumor,Ambiguous,14,cell_type_cnv_corrected
+P4,Peritumoral,Tumor,MES-like,11,cell_type_cnv_corrected
+P4,Peritumoral,Tumor,NPC-like,2,cell_type_cnv_corrected
+P4,Peritumoral,Tumor,OPC-like,5,cell_type_cnv_corrected
+P4,Tumor,Endothelial,Excluded,107,cell_type_cnv_corrected
+P4,Tumor,Macrophage,Excluded,3409,cell_type_cnv_corrected
+P4,Tumor,Microglia,Excluded,1491,cell_type_cnv_corrected
+P4,Tumor,Monocyte,Excluded,1193,cell_type_cnv_corrected
+P4,Tumor,NK/T,Excluded,203,cell_type_cnv_corrected
+P4,Tumor,NPC-like Tumor,AC-like,2,cell_type_cnv_corrected
+P4,Tumor,NPC-like Tumor,Ambiguous,3,cell_type_cnv_corrected
+P4,Tumor,NPC-like Tumor,MES-like,10,cell_type_cnv_corrected
+P4,Tumor,Neutrophil,Excluded,1366,cell_type_cnv_corrected
+P4,Tumor,OPC-like Tumor,OPC-like,2,cell_type_cnv_corrected
+P4,Tumor,Pericyte,Excluded,9,cell_type_cnv_corrected
+P4,Tumor,Prol.tumor,AC-like,23,cell_type_cnv_corrected
+P4,Tumor,Prol.tumor,Ambiguous,33,cell_type_cnv_corrected
+P4,Tumor,Prol.tumor,MES-like,212,cell_type_cnv_corrected
+P4,Tumor,Prol.tumor,NPC-like,17,cell_type_cnv_corrected
+P4,Tumor,Prol.tumor,OPC-like,1,cell_type_cnv_corrected
+P4,Tumor,Tumor,Ambiguous,1,cell_type_cnv_corrected
+P4,Tumor,Tumor,MES-like,34,cell_type_cnv_corrected
+P4,Tumor,Tumor,NPC-like,1,cell_type_cnv_corrected
+P4,Tumor,Tumor (from cl0),MES-like,1,cell_type_cnv_corrected
+P1,Peritumoral,0.0049920581242603,AC-like,3,cnv_score
+P1,Peritumoral,0.0049920581242603,Excluded,711,cnv_score
+P1,Peritumoral,0.0058850997956471,AC-like,9,cnv_score
+P1,Peritumoral,0.0058850997956471,Excluded,6322,cnv_score
+P1,Peritumoral,0.0058850997956471,NPC-like,2,cnv_score
+P1,Peritumoral,0.0064534895780499,Excluded,236,cnv_score
+P1,Peritumoral,0.0064534895780499,MES-like,1,cnv_score
+P1,Peritumoral,0.0064701126569236,Excluded,655,cnv_score
+P1,Peritumoral,0.0120235572354768,Excluded,12,cnv_score
+P1,Peritumoral,0.0134206434458864,Excluded,4,cnv_score
+P1,Tumor,0.0049920581242603,AC-like,6,cnv_score
+P1,Tumor,0.0049920581242603,Ambiguous,2,cnv_score
+P1,Tumor,0.0049920581242603,Excluded,324,cnv_score
+P1,Tumor,0.0049920581242603,MES-like,17,cnv_score
+P1,Tumor,0.0058850997956471,AC-like,7,cnv_score
+P1,Tumor,0.0058850997956471,Ambiguous,6,cnv_score
+P1,Tumor,0.0058850997956471,Excluded,2314,cnv_score
+P1,Tumor,0.0058850997956471,MES-like,58,cnv_score
+P1,Tumor,0.0058850997956471,OPC-like,1,cnv_score
+P1,Tumor,0.0064534895780499,AC-like,15,cnv_score
+P1,Tumor,0.0064534895780499,Ambiguous,33,cnv_score
+P1,Tumor,0.0064534895780499,Excluded,10648,cnv_score
+P1,Tumor,0.0064534895780499,MES-like,590,cnv_score
+P1,Tumor,0.0064534895780499,NPC-like,8,cnv_score
+P1,Tumor,0.0064534895780499,OPC-like,4,cnv_score
+P1,Tumor,0.0064701126569236,AC-like,3,cnv_score
+P1,Tumor,0.0064701126569236,Ambiguous,2,cnv_score
+P1,Tumor,0.0064701126569236,Excluded,653,cnv_score
+P1,Tumor,0.0064701126569236,MES-like,30,cnv_score
+P1,Tumor,0.0064701126569236,NPC-like,2,cnv_score
+P1,Tumor,0.0120235572354768,AC-like,1,cnv_score
+P1,Tumor,0.0120235572354768,Excluded,37,cnv_score
+P1,Tumor,0.0120235572354768,MES-like,3,cnv_score
+P1,Tumor,0.0134206434458864,Excluded,18,cnv_score
+P1,Tumor,0.0134206434458864,MES-like,2,cnv_score
+P2,Peritumoral,0.0049920581242603,AC-like,1,cnv_score
+P2,Peritumoral,0.0049920581242603,Ambiguous,1,cnv_score
+P2,Peritumoral,0.0049920581242603,Excluded,216,cnv_score
+P2,Peritumoral,0.0058850997956471,AC-like,2,cnv_score
+P2,Peritumoral,0.0058850997956471,Ambiguous,4,cnv_score
+P2,Peritumoral,0.0058850997956471,Excluded,4204,cnv_score
+P2,Peritumoral,0.0058850997956471,NPC-like,9,cnv_score
+P2,Peritumoral,0.0064534895780499,Excluded,168,cnv_score
+P2,Peritumoral,0.0064534895780499,MES-like,1,cnv_score
+P2,Peritumoral,0.0064701126569236,Ambiguous,4,cnv_score
+P2,Peritumoral,0.0064701126569236,Excluded,4156,cnv_score
+P2,Peritumoral,0.0064701126569236,NPC-like,11,cnv_score
+P2,Peritumoral,0.0064701126569236,OPC-like,2,cnv_score
+P2,Peritumoral,0.0120235572354768,Excluded,8,cnv_score
+P2,Tumor,0.0049920581242603,Excluded,30,cnv_score
+P2,Tumor,0.0049920581242603,MES-like,2,cnv_score
+P2,Tumor,0.0058850997956471,AC-like,8,cnv_score
+P2,Tumor,0.0058850997956471,Ambiguous,13,cnv_score
+P2,Tumor,0.0058850997956471,Excluded,742,cnv_score
+P2,Tumor,0.0058850997956471,MES-like,36,cnv_score
+P2,Tumor,0.0058850997956471,NPC-like,17,cnv_score
+P2,Tumor,0.0058850997956471,OPC-like,2,cnv_score
+P2,Tumor,0.0064534895780499,AC-like,9,cnv_score
+P2,Tumor,0.0064534895780499,Ambiguous,13,cnv_score
+P2,Tumor,0.0064534895780499,Excluded,850,cnv_score
+P2,Tumor,0.0064534895780499,MES-like,58,cnv_score
+P2,Tumor,0.0064534895780499,NPC-like,12,cnv_score
+P2,Tumor,0.0064534895780499,OPC-like,1,cnv_score
+P2,Tumor,0.0064701126569236,AC-like,26,cnv_score
+P2,Tumor,0.0064701126569236,Ambiguous,78,cnv_score
+P2,Tumor,0.0064701126569236,Excluded,6087,cnv_score
+P2,Tumor,0.0064701126569236,MES-like,318,cnv_score
+P2,Tumor,0.0064701126569236,NPC-like,90,cnv_score
+P2,Tumor,0.0064701126569236,OPC-like,1,cnv_score
+P2,Tumor,0.0120235572354768,Excluded,1,cnv_score
+P3,Peritumoral,0.0049920581242603,AC-like,6,cnv_score
+P3,Peritumoral,0.0049920581242603,Excluded,1357,cnv_score
+P3,Peritumoral,0.0058850997956471,AC-like,28,cnv_score
+P3,Peritumoral,0.0058850997956471,Ambiguous,1,cnv_score
+P3,Peritumoral,0.0058850997956471,Excluded,8022,cnv_score
+P3,Peritumoral,0.0064534895780499,AC-like,2,cnv_score
+P3,Peritumoral,0.0064534895780499,Excluded,362,cnv_score
+P3,Peritumoral,0.0064701126569236,AC-like,2,cnv_score
+P3,Peritumoral,0.0064701126569236,Excluded,544,cnv_score
+P3,Peritumoral,0.0064701126569236,NPC-like,1,cnv_score
+P3,Peritumoral,0.0120235572354768,Excluded,14,cnv_score
+P3,Peritumoral,0.0134206434458864,Excluded,6,cnv_score
+P3,Tumor,0.0049920581242603,Excluded,32,cnv_score
+P3,Tumor,0.0058850997956471,AC-like,2,cnv_score
+P3,Tumor,0.0058850997956471,Ambiguous,3,cnv_score
+P3,Tumor,0.0058850997956471,Excluded,1189,cnv_score
+P3,Tumor,0.0058850997956471,MES-like,32,cnv_score
+P3,Tumor,0.0064534895780499,Ambiguous,3,cnv_score
+P3,Tumor,0.0064534895780499,Excluded,845,cnv_score
+P3,Tumor,0.0064534895780499,MES-like,18,cnv_score
+P3,Tumor,0.0064534895780499,NPC-like,2,cnv_score
+P3,Tumor,0.0064701126569236,AC-like,3,cnv_score
+P3,Tumor,0.0064701126569236,Ambiguous,8,cnv_score
+P3,Tumor,0.0064701126569236,Excluded,7001,cnv_score
+P3,Tumor,0.0064701126569236,MES-like,193,cnv_score
+P3,Tumor,0.0064701126569236,NPC-like,2,cnv_score
+P3,Tumor,0.0120235572354768,Excluded,1,cnv_score
+P3,Tumor,0.0120235572354768,MES-like,1,cnv_score
+P3,Tumor,0.0134206434458864,Excluded,1,cnv_score
+P4,Peritumoral,0.0049920581242603,AC-like,8,cnv_score
+P4,Peritumoral,0.0049920581242603,Ambiguous,1,cnv_score
+P4,Peritumoral,0.0049920581242603,Excluded,775,cnv_score
+P4,Peritumoral,0.0049920581242603,MES-like,1,cnv_score
+P4,Peritumoral,0.0049920581242603,NPC-like,1,cnv_score
+P4,Peritumoral,0.0058850997956471,AC-like,67,cnv_score
+P4,Peritumoral,0.0058850997956471,Ambiguous,20,cnv_score
+P4,Peritumoral,0.0058850997956471,Excluded,9904,cnv_score
+P4,Peritumoral,0.0058850997956471,MES-like,14,cnv_score
+P4,Peritumoral,0.0058850997956471,NPC-like,7,cnv_score
+P4,Peritumoral,0.0058850997956471,OPC-like,11,cnv_score
+P4,Peritumoral,0.0064534895780499,AC-like,12,cnv_score
+P4,Peritumoral,0.0064534895780499,Ambiguous,5,cnv_score
+P4,Peritumoral,0.0064534895780499,Excluded,1232,cnv_score
+P4,Peritumoral,0.0064534895780499,MES-like,1,cnv_score
+P4,Peritumoral,0.0064534895780499,NPC-like,2,cnv_score
+P4,Peritumoral,0.0064534895780499,OPC-like,1,cnv_score
+P4,Peritumoral,0.0064701126569236,AC-like,10,cnv_score
+P4,Peritumoral,0.0064701126569236,Ambiguous,1,cnv_score
+P4,Peritumoral,0.0064701126569236,Excluded,1967,cnv_score
+P4,Peritumoral,0.0064701126569236,MES-like,4,cnv_score
+P4,Peritumoral,0.0120235572354768,OPC-like,1,cnv_score
+P4,Peritumoral,0.0134206434458864,Excluded,18,cnv_score
+P4,Tumor,0.0049920581242603,AC-like,2,cnv_score
+P4,Tumor,0.0049920581242603,Ambiguous,6,cnv_score
+P4,Tumor,0.0049920581242603,Excluded,605,cnv_score
+P4,Tumor,0.0049920581242603,MES-like,18,cnv_score
+P4,Tumor,0.0049920581242603,NPC-like,1,cnv_score
+P4,Tumor,0.0058850997956471,AC-like,7,cnv_score
+P4,Tumor,0.0058850997956471,Ambiguous,7,cnv_score
+P4,Tumor,0.0058850997956471,Excluded,1888,cnv_score
+P4,Tumor,0.0058850997956471,MES-like,55,cnv_score
+P4,Tumor,0.0058850997956471,NPC-like,5,cnv_score
+P4,Tumor,0.0064534895780499,AC-like,13,cnv_score
+P4,Tumor,0.0064534895780499,Ambiguous,16,cnv_score
+P4,Tumor,0.0064534895780499,Excluded,3971,cnv_score
+P4,Tumor,0.0064534895780499,MES-like,136,cnv_score
+P4,Tumor,0.0064534895780499,NPC-like,7,cnv_score
+P4,Tumor,0.0064534895780499,OPC-like,3,cnv_score
+P4,Tumor,0.0064701126569236,AC-like,3,cnv_score
+P4,Tumor,0.0064701126569236,Ambiguous,8,cnv_score
+P4,Tumor,0.0064701126569236,Excluded,1302,cnv_score
+P4,Tumor,0.0064701126569236,MES-like,46,cnv_score
+P4,Tumor,0.0064701126569236,NPC-like,5,cnv_score
+P4,Tumor,0.0120235572354768,Excluded,10,cnv_score
+P4,Tumor,0.0120235572354768,MES-like,1,cnv_score
+P4,Tumor,0.0134206434458864,Excluded,2,cnv_score
+P4,Tumor,0.0134206434458864,MES-like,1,cnv_score
+P1,Peritumoral,0,AC-like,9,cnv_leiden
+P1,Peritumoral,0,Excluded,6322,cnv_leiden
+P1,Peritumoral,0,NPC-like,2,cnv_leiden
+P1,Peritumoral,1,Excluded,12,cnv_leiden
+P1,Peritumoral,2,Excluded,655,cnv_leiden
+P1,Peritumoral,3,Excluded,236,cnv_leiden
+P1,Peritumoral,3,MES-like,1,cnv_leiden
+P1,Peritumoral,4,Excluded,4,cnv_leiden
+P1,Peritumoral,6,AC-like,3,cnv_leiden
+P1,Peritumoral,6,Excluded,711,cnv_leiden
+P1,Tumor,0,AC-like,7,cnv_leiden
+P1,Tumor,0,Ambiguous,6,cnv_leiden
+P1,Tumor,0,Excluded,2314,cnv_leiden
+P1,Tumor,0,MES-like,58,cnv_leiden
+P1,Tumor,0,OPC-like,1,cnv_leiden
+P1,Tumor,1,AC-like,1,cnv_leiden
+P1,Tumor,1,Excluded,37,cnv_leiden
+P1,Tumor,1,MES-like,3,cnv_leiden
+P1,Tumor,2,AC-like,3,cnv_leiden
+P1,Tumor,2,Ambiguous,2,cnv_leiden
+P1,Tumor,2,Excluded,653,cnv_leiden
+P1,Tumor,2,MES-like,30,cnv_leiden
+P1,Tumor,2,NPC-like,2,cnv_leiden
+P1,Tumor,3,AC-like,15,cnv_leiden
+P1,Tumor,3,Ambiguous,33,cnv_leiden
+P1,Tumor,3,Excluded,10648,cnv_leiden
+P1,Tumor,3,MES-like,590,cnv_leiden
+P1,Tumor,3,NPC-like,8,cnv_leiden
+P1,Tumor,3,OPC-like,4,cnv_leiden
+P1,Tumor,4,Excluded,18,cnv_leiden
+P1,Tumor,4,MES-like,2,cnv_leiden
+P1,Tumor,6,AC-like,6,cnv_leiden
+P1,Tumor,6,Ambiguous,2,cnv_leiden
+P1,Tumor,6,Excluded,324,cnv_leiden
+P1,Tumor,6,MES-like,17,cnv_leiden
+P2,Peritumoral,0,AC-like,2,cnv_leiden
+P2,Peritumoral,0,Ambiguous,4,cnv_leiden
+P2,Peritumoral,0,Excluded,4204,cnv_leiden
+P2,Peritumoral,0,NPC-like,9,cnv_leiden
+P2,Peritumoral,1,Excluded,8,cnv_leiden
+P2,Peritumoral,2,Ambiguous,4,cnv_leiden
+P2,Peritumoral,2,Excluded,4156,cnv_leiden
+P2,Peritumoral,2,NPC-like,11,cnv_leiden
+P2,Peritumoral,2,OPC-like,2,cnv_leiden
+P2,Peritumoral,3,Excluded,168,cnv_leiden
+P2,Peritumoral,3,MES-like,1,cnv_leiden
+P2,Peritumoral,6,AC-like,1,cnv_leiden
+P2,Peritumoral,6,Ambiguous,1,cnv_leiden
+P2,Peritumoral,6,Excluded,216,cnv_leiden
+P2,Tumor,0,AC-like,8,cnv_leiden
+P2,Tumor,0,Ambiguous,13,cnv_leiden
+P2,Tumor,0,Excluded,742,cnv_leiden
+P2,Tumor,0,MES-like,36,cnv_leiden
+P2,Tumor,0,NPC-like,17,cnv_leiden
+P2,Tumor,0,OPC-like,2,cnv_leiden
+P2,Tumor,1,Excluded,1,cnv_leiden
+P2,Tumor,2,AC-like,26,cnv_leiden
+P2,Tumor,2,Ambiguous,78,cnv_leiden
+P2,Tumor,2,Excluded,6087,cnv_leiden
+P2,Tumor,2,MES-like,318,cnv_leiden
+P2,Tumor,2,NPC-like,90,cnv_leiden
+P2,Tumor,2,OPC-like,1,cnv_leiden
+P2,Tumor,3,AC-like,9,cnv_leiden
+P2,Tumor,3,Ambiguous,13,cnv_leiden
+P2,Tumor,3,Excluded,850,cnv_leiden
+P2,Tumor,3,MES-like,58,cnv_leiden
+P2,Tumor,3,NPC-like,12,cnv_leiden
+P2,Tumor,3,OPC-like,1,cnv_leiden
+P2,Tumor,6,Excluded,30,cnv_leiden
+P2,Tumor,6,MES-like,2,cnv_leiden
+P3,Peritumoral,0,AC-like,28,cnv_leiden
+P3,Peritumoral,0,Ambiguous,1,cnv_leiden
+P3,Peritumoral,0,Excluded,8022,cnv_leiden
+P3,Peritumoral,1,Excluded,14,cnv_leiden
+P3,Peritumoral,2,AC-like,2,cnv_leiden
+P3,Peritumoral,2,Excluded,544,cnv_leiden
+P3,Peritumoral,2,NPC-like,1,cnv_leiden
+P3,Peritumoral,3,AC-like,2,cnv_leiden
+P3,Peritumoral,3,Excluded,362,cnv_leiden
+P3,Peritumoral,4,Excluded,6,cnv_leiden
+P3,Peritumoral,6,AC-like,6,cnv_leiden
+P3,Peritumoral,6,Excluded,1357,cnv_leiden
+P3,Tumor,0,AC-like,2,cnv_leiden
+P3,Tumor,0,Ambiguous,3,cnv_leiden
+P3,Tumor,0,Excluded,1189,cnv_leiden
+P3,Tumor,0,MES-like,32,cnv_leiden
+P3,Tumor,1,Excluded,1,cnv_leiden
+P3,Tumor,1,MES-like,1,cnv_leiden
+P3,Tumor,2,AC-like,3,cnv_leiden
+P3,Tumor,2,Ambiguous,8,cnv_leiden
+P3,Tumor,2,Excluded,7001,cnv_leiden
+P3,Tumor,2,MES-like,193,cnv_leiden
+P3,Tumor,2,NPC-like,2,cnv_leiden
+P3,Tumor,3,Ambiguous,3,cnv_leiden
+P3,Tumor,3,Excluded,845,cnv_leiden
+P3,Tumor,3,MES-like,18,cnv_leiden
+P3,Tumor,3,NPC-like,2,cnv_leiden
+P3,Tumor,4,Excluded,1,cnv_leiden
+P3,Tumor,6,Excluded,32,cnv_leiden
+P4,Peritumoral,0,AC-like,67,cnv_leiden
+P4,Peritumoral,0,Ambiguous,20,cnv_leiden
+P4,Peritumoral,0,Excluded,9904,cnv_leiden
+P4,Peritumoral,0,MES-like,14,cnv_leiden
+P4,Peritumoral,0,NPC-like,7,cnv_leiden
+P4,Peritumoral,0,OPC-like,11,cnv_leiden
+P4,Peritumoral,1,OPC-like,1,cnv_leiden
+P4,Peritumoral,2,AC-like,10,cnv_leiden
+P4,Peritumoral,2,Ambiguous,1,cnv_leiden
+P4,Peritumoral,2,Excluded,1967,cnv_leiden
+P4,Peritumoral,2,MES-like,4,cnv_leiden
+P4,Peritumoral,3,AC-like,12,cnv_leiden
+P4,Peritumoral,3,Ambiguous,5,cnv_leiden
+P4,Peritumoral,3,Excluded,1232,cnv_leiden
+P4,Peritumoral,3,MES-like,1,cnv_leiden
+P4,Peritumoral,3,NPC-like,2,cnv_leiden
+P4,Peritumoral,3,OPC-like,1,cnv_leiden
+P4,Peritumoral,4,Excluded,18,cnv_leiden
+P4,Peritumoral,6,AC-like,8,cnv_leiden
+P4,Peritumoral,6,Ambiguous,1,cnv_leiden
+P4,Peritumoral,6,Excluded,775,cnv_leiden
+P4,Peritumoral,6,MES-like,1,cnv_leiden
+P4,Peritumoral,6,NPC-like,1,cnv_leiden
+P4,Tumor,0,AC-like,7,cnv_leiden
+P4,Tumor,0,Ambiguous,7,cnv_leiden
+P4,Tumor,0,Excluded,1888,cnv_leiden
+P4,Tumor,0,MES-like,55,cnv_leiden
+P4,Tumor,0,NPC-like,5,cnv_leiden
+P4,Tumor,1,Excluded,10,cnv_leiden
+P4,Tumor,1,MES-like,1,cnv_leiden
+P4,Tumor,2,AC-like,3,cnv_leiden
+P4,Tumor,2,Ambiguous,8,cnv_leiden
+P4,Tumor,2,Excluded,1302,cnv_leiden
+P4,Tumor,2,MES-like,46,cnv_leiden
+P4,Tumor,2,NPC-like,5,cnv_leiden
+P4,Tumor,3,AC-like,13,cnv_leiden
+P4,Tumor,3,Ambiguous,16,cnv_leiden
+P4,Tumor,3,Excluded,3971,cnv_leiden
+P4,Tumor,3,MES-like,136,cnv_leiden
+P4,Tumor,3,NPC-like,7,cnv_leiden
+P4,Tumor,3,OPC-like,3,cnv_leiden
+P4,Tumor,4,Excluded,2,cnv_leiden
+P4,Tumor,4,MES-like,1,cnv_leiden
+P4,Tumor,6,AC-like,2,cnv_leiden
+P4,Tumor,6,Ambiguous,6,cnv_leiden
+P4,Tumor,6,Excluded,605,cnv_leiden
+P4,Tumor,6,MES-like,18,cnv_leiden
+P4,Tumor,6,NPC-like,1,cnv_leiden

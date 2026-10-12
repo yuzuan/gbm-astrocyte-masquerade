@@ -1,0 +1,6 @@
+cohort,accessions,patients,regions,included_cells,analysis_unit,analysis_scope_note
+GSE211376,GSE211376,11,Tumor,20656,patient-region,11 tumor patients analyzed
+GSE273274,GSE273274,3,Peritumoral; Tumor,43790,patient-region,3 matched tumor-peritumoral patients analyzed
+GSE274987,GSE274986; GSE274987,10,Core; Edge; Peripheral,100908,patient-region,Joint Wu et al. regional cohort: 6 GSE274986 Multiome patients and 4 GSE274987 ParseBio patients analyzed together; the legacy internal cohort label is GSE274987
+GSE276177,GSE276177,2,Peritumoral; Tumor,17369,patient-region,2 matched patients analyzed; the source study also reported one tumor-only patient
+GSE286419,GSE286419,4,Peritumoral; Tumor,27500,patient-region,4 matched patients from the public confident-sample subset analyzed; the source study reported 6 patients

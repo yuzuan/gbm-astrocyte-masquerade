@@ -1,3 +1,5 @@
+> **Current PLOS ONE manuscript release:** [PONE-D-26-35909](PONE_D_26_35909/README.md) contains the patient-level TGFB2 analyses, recoded derived inputs, and October 2026 revision. The repository-root description and stage01-stage26 scripts below document an earlier project version and do not describe the revised manuscript’s conclusions.
+
 # gbm-astrocyte-masquerade
 
 Analysis code for the manuscript:

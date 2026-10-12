@@ -1,0 +1,104 @@
+{
+  "uniform_marker_assignment": true,
+  "tgfb2_not_used_for_state_definition": true,
+  "minimum_score_difference": 0.05,
+  "minimum_cells_per_group": 20,
+  "marker_gene_standardization": false,
+  "meta": {
+    "n_cohorts": 5,
+    "n_patients": 26,
+    "positive_cohorts": 4,
+    "meta_z": 3.8119420709791254,
+    "p_value": 0.0001378791945659202,
+    "loo_max_p_value": 0.0054573196373481824,
+    "loo_results": [
+      {
+        "omitted": "GSE162631",
+        "z": 4.052929488895313,
+        "p_value": 5.058025079707939e-05
+      },
+      {
+        "omitted": "GSE211376",
+        "z": 2.7787220699782975,
+        "p_value": 0.0054573196373481824
+      },
+      {
+        "omitted": "GSE273274",
+        "z": 3.6374721143855573,
+        "p_value": 0.0002753269897715404
+      },
+      {
+        "omitted": "GSE274987",
+        "z": 2.99178926530266,
+        "p_value": 0.00277347643311339
+      },
+      {
+        "omitted": "GSE286419",
+        "z": 3.489866731242384,
+        "p_value": 0.0004832614790329409
+      }
+    ]
+  },
+  "lineage_adjustment": {
+    "n_patients": 26,
+    "grand_mean_at_average_ac_score": 0.15623477458350457,
+    "hc3_p_value": 4.532179355316464e-09,
+    "hc3_ci_low": 0.10401090371197229,
+    "hc3_ci_high": 0.20845864545503684,
+    "ac_score_slope": 0.5344888815308896,
+    "ac_score_slope_p": 0.0005992679881944128,
+    "spearman_rho": 0.6765811965811965,
+    "spearman_p": 0.0001476483147137068,
+    "interpretation": "Sensitivity model only; uniform states are intentionally defined by the AC marker program."
+  },
+  "cohorts": [
+    {
+      "cohort": "GSE162631",
+      "n_patients": 3,
+      "median_difference": -0.015319503843784332,
+      "positive_patients": 1,
+      "p_value": 1.0,
+      "q_value": 1.0
+    },
+    {
+      "cohort": "GSE211376",
+      "n_patients": 9,
+      "median_difference": 0.2655835449695587,
+      "positive_patients": 8,
+      "p_value": 0.0078125,
+      "q_value": 0.0390625
+    },
+    {
+      "cohort": "GSE273274",
+      "n_patients": 3,
+      "median_difference": 0.2191295027732849,
+      "positive_patients": 3,
+      "p_value": 0.25,
+      "q_value": 0.3125
+    },
+    {
+      "cohort": "GSE274987",
+      "n_patients": 7,
+      "median_difference": 0.0800737589597702,
+      "positive_patients": 7,
+      "p_value": 0.015625,
+      "q_value": 0.0390625
+    },
+    {
+      "cohort": "GSE276177",
+      "n_patients": 2,
+      "median_difference": 0.06222568452358246,
+      "positive_patients": 1,
+      "p_value": NaN,
+      "q_value": NaN
+    },
+    {
+      "cohort": "GSE286419",
+      "n_patients": 4,
+      "median_difference": 0.08530784398317337,
+      "positive_patients": 4,
+      "p_value": 0.125,
+      "q_value": 0.20833333333333334
+    }
+  ]
+}

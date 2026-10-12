@@ -1,0 +1,8 @@
+gene,site,row_present,nonmissing_samples,total_sample_columns,canonical_activation_site
+SMAD2,,False,0,110,True
+SMAD3,,False,0,110,True
+SMAD4,,False,0,110,False
+TGFB2,,False,0,110,False
+TGFBR1,TGFBR1-S169s,True,109,110,False
+TGFBR2,TGFBR2-S434s,True,10,110,False
+TGFBR2,TGFBR2-S573s,True,10,110,False

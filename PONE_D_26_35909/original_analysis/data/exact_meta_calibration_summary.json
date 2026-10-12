@@ -1,0 +1,11 @@
+{
+  "enumeration_is_exhaustive": true,
+  "full_signflip_patterns_per_ligand": 1048576,
+  "tgfb2_exact_p_value": 1.9073486328125e-06,
+  "tgfb2_exact_loo_q_value": 0.00146484375,
+  "genes_passing_exact_primary_and_loo_q": [
+    "TGFB2",
+    "CSF1"
+  ],
+  "interpretation": "Sensitivity calibration of the signed Stouffer statistic; primary claims remain based on the primary normal approximation."
+}

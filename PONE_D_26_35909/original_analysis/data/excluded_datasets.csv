@@ -1,0 +1,3 @@
+dataset,reason,status
+GSE162631,Processed public object did not provide a harmonized four-state malignant annotation; AC-like counts were below the predefined 20-cell threshold in several patient-regions.,excluded from primary label-based analysis; included in uniform-marker sensitivity analysis
+GSE174554,"The prior intermediate clustering object was unavailable, so the earlier cluster-specific results could not be regenerated from the recorded workflow.",excluded; no legacy summary values reused

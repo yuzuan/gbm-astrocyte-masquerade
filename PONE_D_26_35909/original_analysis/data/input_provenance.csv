@@ -1,0 +1,6 @@
+input,accessions,input_type,source_file_name,repository_target_path,bytes
+GSE211376_counts,GSE211376,GEO raw count matrix,GSE211376_raw_counts.tsv.gz,raw_inputs/GSE211376_raw_counts.tsv.gz,116005648
+GSE211376_meta,GSE211376,GEO cell metadata,GSE211376_metadata.csv.gz,raw_inputs/GSE211376_metadata.csv.gz,244834
+scGBM,GSE162631; GSE273274,project-generated processed AnnData,scGBM_GSE162631_GSE273274.h5ad,processed_inputs/scGBM_GSE162631_GSE273274.h5ad,6129280181
+snGBM,GSE276177; GSE286419,project-generated processed AnnData,snGBM_GSE276177_GSE286419.h5ad,processed_inputs/snGBM_GSE276177_GSE286419.h5ad,5038412843
+GSE274987,GSE274986; GSE274987; GSE241037,project-generated processed AnnData; joint GSE274986/GSE274987 cohort selected through legacy dataset value GSE274987; GSE241037 excluded,regional_GSE274987_GSE241037.h5ad,processed_inputs/regional_GSE274987_GSE241037.h5ad,11166546212

@@ -1,0 +1,84 @@
+{
+  "public_source_accessions": [
+    "GSE162631",
+    "GSE211376",
+    "GSE273274",
+    "GSE274986",
+    "GSE274987",
+    "GSE276177",
+    "GSE286419"
+  ],
+  "processed_objects_audited": 3,
+  "upstream_notebooks_frozen": 8,
+  "all_required_columns_present": true,
+  "all_obs_names_unique": true,
+  "object_assertions": {
+    "scGBM_processed": {
+      "required_columns_present": true,
+      "selected_dataset_values_present": true,
+      "selected_source_accessions_present": true,
+      "obs_names_unique": true,
+      "selected_dataset_values": [
+        "GSE162631",
+        "GSE273274"
+      ],
+      "selected_source_accessions": [
+        "GSE162631",
+        "GSE273274"
+      ],
+      "all_dataset_members": [
+        "GSE162631",
+        "GSE273274"
+      ],
+      "source_accessions": [
+        "GSE162631",
+        "GSE273274"
+      ]
+    },
+    "snGBM_processed": {
+      "required_columns_present": true,
+      "selected_dataset_values_present": true,
+      "selected_source_accessions_present": true,
+      "obs_names_unique": true,
+      "selected_dataset_values": [
+        "GSE276177",
+        "GSE286419"
+      ],
+      "selected_source_accessions": [
+        "GSE276177",
+        "GSE286419"
+      ],
+      "all_dataset_members": [
+        "GSE276177",
+        "GSE286419"
+      ],
+      "source_accessions": [
+        "GSE276177",
+        "GSE286419"
+      ]
+    },
+    "regional_processed": {
+      "required_columns_present": true,
+      "selected_dataset_values_present": true,
+      "selected_source_accessions_present": true,
+      "obs_names_unique": true,
+      "selected_dataset_values": [
+        "GSE274987"
+      ],
+      "selected_source_accessions": [
+        "GSE274986",
+        "GSE274987"
+      ],
+      "all_dataset_members": [
+        "GSE241037",
+        "GSE274987"
+      ],
+      "source_accessions": [
+        "GSE241037",
+        "GSE274986",
+        "GSE274987"
+      ]
+    }
+  },
+  "reproducibility_boundary": "Exact processed objects must be deposited; GEO plus downstream scripts alone is insufficient."
+}

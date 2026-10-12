@@ -1,0 +1,38 @@
+{
+  "dataset": "GSE253080",
+  "n_sections": 16,
+  "n_patients": 3,
+  "tgfb2": {
+    "ligand": "TGFB2",
+    "rho_ac_score_n_patients": 3,
+    "rho_ac_score_median": 0.09500500854445734,
+    "rho_ac_score_mean": 0.17272153154960848,
+    "rho_ac_score_n_positive": 3,
+    "rho_ac_score_signflip_p": 0.25,
+    "rho_ac_score_wilcoxon_p": 0.25,
+    "rho_ac_score_adjusted_n_patients": 3,
+    "rho_ac_score_adjusted_median": 0.07029546077572017,
+    "rho_ac_score_adjusted_mean": 0.06734743323600806,
+    "rho_ac_score_adjusted_n_positive": 2,
+    "rho_ac_score_adjusted_signflip_p": 0.5,
+    "rho_ac_score_adjusted_wilcoxon_p": 0.5,
+    "high_minus_zero_ac_score_n_patients": 3,
+    "high_minus_zero_ac_score_median": 0.11478663250321028,
+    "high_minus_zero_ac_score_mean": 0.23204130708521617,
+    "high_minus_zero_ac_score_n_positive": 3,
+    "high_minus_zero_ac_score_signflip_p": 0.25,
+    "high_minus_zero_ac_score_wilcoxon_p": 0.25,
+    "rho_ac_score_signflip_q": 0.375,
+    "rho_ac_score_adjusted_signflip_q": 0.6,
+    "high_minus_zero_ac_score_signflip_q": 0.375
+  },
+  "proximity": {
+    "tgfb2_neighbor_receiver_delta_n_patients": 3,
+    "tgfb2_neighbor_receiver_delta_median": 0.08128010075011342,
+    "tgfb2_neighbor_receiver_delta_mean": 0.09864660855910479,
+    "tgfb2_neighbor_receiver_delta_n_positive": 3,
+    "tgfb2_neighbor_receiver_delta_signflip_p": 0.25,
+    "tgfb2_neighbor_receiver_delta_wilcoxon_p": 0.25
+  },
+  "inference_limit": "three patients; directional sensitivity analysis only"
+}

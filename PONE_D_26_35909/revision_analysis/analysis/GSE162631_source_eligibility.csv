@@ -1,0 +1,9 @@
+scenario,labels,cohort,patient,region,n_ac,n_other,eligible
+source_full_gene_10k,uniform,GSE162631,P1,Tumor,32,715,True
+source_original_tumor_concordant,uniform,GSE162631,P1,Tumor,29,705,True
+source_full_gene_10k,uniform,GSE162631,P2,Tumor,43,537,True
+source_original_tumor_concordant,uniform,GSE162631,P2,Tumor,43,531,True
+source_full_gene_10k,uniform,GSE162631,P3,Tumor,5,248,False
+source_original_tumor_concordant,uniform,GSE162631,P3,Tumor,5,243,False
+source_full_gene_10k,uniform,GSE162631,P4,Tumor,25,278,True
+source_original_tumor_concordant,uniform,GSE162631,P4,Tumor,23,265,True

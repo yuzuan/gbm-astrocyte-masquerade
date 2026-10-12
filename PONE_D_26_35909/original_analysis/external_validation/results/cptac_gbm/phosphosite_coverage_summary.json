@@ -1,0 +1,25 @@
+{
+  "source_file": "./local_inputs",
+  "sample_columns": 110,
+  "target_genes": [
+    "SMAD2",
+    "SMAD3",
+    "SMAD4",
+    "TGFB2",
+    "TGFBR1",
+    "TGFBR2"
+  ],
+  "canonical_sites_requested": {
+    "SMAD2": [
+      "S465",
+      "S467"
+    ],
+    "SMAD3": [
+      "S423",
+      "S425"
+    ]
+  },
+  "canonical_sites_detected": [],
+  "canonical_smad_activation_available": false,
+  "interpretation": "Canonical SMAD2 S465/S467 and SMAD3 S423/S425 activation sites are not represented in the clean CPTAC GBM phosphoproteome matrix; downstream TGF-beta pathway activation cannot be validated from this file."
+}

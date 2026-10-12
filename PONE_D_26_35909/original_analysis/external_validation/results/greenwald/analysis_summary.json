@@ -1,0 +1,30 @@
+{
+  "dataset": "Greenwald-Ravi",
+  "n_samples": 26,
+  "n_patients": 18,
+  "n_greenwald_patients": 5,
+  "n_ravi_patients": 13,
+  "tgfb2": {
+    "ligand": "TGFB2",
+    "n_patients": 18,
+    "ac_minus_other_median": -0.0083,
+    "ac_minus_other_mean": -0.0257,
+    "ac_minus_other_n_positive": 8,
+    "ac_minus_other_signflip_p": 0.3418,
+    "ac_minus_other_wilcoxon_p": 0.5421,
+    "ac_minus_reactive_n": 16,
+    "ac_minus_reactive_median": -0.0112,
+    "ac_minus_reactive_n_positive": 7,
+    "ac_minus_reactive_signflip_p": 0.4387,
+    "ac_minus_other_signflip_q": 0.3739,
+    "ac_minus_reactive_signflip_q": 0.6581
+  },
+  "proximity": {
+    "n_patients": 12,
+    "median": 0.0035,
+    "mean": 0.006,
+    "n_positive": 8,
+    "signflip_p": 0.0742,
+    "wilcoxon_p": 0.1261
+  }
+}
