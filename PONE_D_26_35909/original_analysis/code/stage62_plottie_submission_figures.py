@@ -305,7 +305,7 @@ def figure1() -> None:
         ),
         (
             0.25,
-            ["Regional co-availability", "Paired patient effects", "Exact sign flip", "Statistically unresolved"],
+            ["Regional co-availability", "Paired patient effects", "Signed-rank test", "Statistically unresolved"],
             TEAL_LIGHT,
             TEAL,
         ),
