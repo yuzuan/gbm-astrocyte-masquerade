@@ -47,7 +47,7 @@ from plottie_figure_style import (
     median_bar,
     open_axes,
     panel_label,
-    save_figure,
+    save_figure as _save_figure,
 )
 
 
@@ -66,6 +66,24 @@ COHORT_ORDER = [
 SENSITIVITY_ORDER = ["GSE162631", *COHORT_ORDER]
 LIGANDS = ["TGFB2", "TGFB1", "ANXA1", "SPP1", "CSF1", "CCL2"]
 RNG = np.random.default_rng(20260717)
+
+
+def save_figure(fig, directory, stem):
+    fig.canvas.draw()
+    renderer=fig.canvas.get_renderer()
+    overflow=[]
+    for obj in fig.findobj(mpl.text.Text):
+        if not obj.get_visible() or not obj.get_text().strip():
+            continue
+        # 对数轴中未绘制的隐藏刻度由Matplotlib管理。
+        box=obj.get_window_extent(renderer)
+        if box.width<=0 or box.height<=0:
+            continue
+        if box.x0 < -1 or box.y0 < -1 or box.x1 > fig.bbox.width+1 or box.y1 > fig.bbox.height+1:
+            overflow.append({'text':obj.get_text(),'bbox':list(box.bounds)})
+    directory.mkdir(parents=True,exist_ok=True)
+    (directory/(stem+'_layout.json')).write_text(json.dumps({'outside_canvas':overflow},indent=2))
+    _save_figure(fig,directory,stem)
 
 
 def require_files(paths: list[Path]) -> None:
@@ -233,12 +251,12 @@ def figure1() -> None:
                 linewidth=0.7,
                 zorder=2,
             )
-        ax.text(2.75, y, f"n={row.patients}", va="center", fontsize=6.5, color=MUTED)
+        ax.text(2.75, y, f"N={row.patients}", va="center", fontsize=6.5, color=MUTED)
     ax.set_xticks(range(3), regions)
     ax.set_yticks(yvals, [cohort_display(item) for item in manifest["cohort"]])
     ax.set_xlim(-0.42, 3.15)
     ax.set_ylim(-0.6, len(manifest) - 0.4)
-    ax.set_title("Public cohorts and sampled regions", pad=6)
+    ax.set_title("Source cohorts and sampled regions", pad=6)
     clean_axes(ax)
     panel_label(ax, "a")
 
@@ -262,11 +280,15 @@ def figure1() -> None:
             color=MUTED,
         )
     ax.set_xscale("log")
+    ax.set_xlim(1.5e4,1.55e5)
+    ax.xaxis.set_major_locator(mpl.ticker.FixedLocator([2e4,5e4,1e5]))
+    ax.xaxis.set_major_formatter(mpl.ticker.FuncFormatter(lambda v,_:f"{v/1000:.0f}k"))
+    ax.xaxis.set_minor_locator(mpl.ticker.NullLocator())
     ax.set_yticks(
         yvals, [cohort_display(item, short=True) for item in manifest["cohort"]]
     )
-    ax.set_xlabel("Included cells or nuclei")
-    ax.set_title("Analyzed cell set", pad=6)
+    ax.set_xlabel("Cell count (log scale)")
+    ax.set_title("Included cells / nuclei", pad=6)
     open_axes(ax, grid_axis="x")
     panel_label(ax, "b")
 
@@ -307,7 +329,8 @@ def figure1() -> None:
                     arrowprops=dict(arrowstyle="-|>", color=GRAY_DARK, linewidth=0.75),
                 )
     panel_label(ax, "c")
-    fig.subplots_adjust(left=0.11, right=0.98, top=0.94, bottom=0.07)
+    fig.text(.11,.45,"N: source-cohort patients; eligible TGFB2 patients are shown in Fig 2a",fontsize=6.2,color=MUTED)
+    fig.subplots_adjust(left=0.11, right=0.95, top=0.94, bottom=0.07)
     save_figure(fig, FIGURES, "Figure1")
 
 
@@ -316,14 +339,14 @@ def figure2() -> None:
     meta = pd.read_csv(DATA / "meta_ligand_results.csv")
     inferential = ["GSE211376", "GSE273274", "GSE274987", "GSE286419"]
     gene_order = ["TGFB2", "CSF1", "ANXA1", "CCL2", "TGFB1", "SPP1"]
-    fig = plt.figure(figsize=(7.1, 5.45))
+    fig = plt.figure(figsize=(7.1, 5.7))
     gs = GridSpec(
         2,
         2,
         figure=fig,
         height_ratios=[0.92, 1.12],
         width_ratios=[1.35, 0.78],
-        hspace=0.50,
+        hspace=0.70,
         wspace=0.42,
     )
     top = GridSpecFromSubplotSpec(1, 4, subplot_spec=gs[0, :], wspace=0.32)
@@ -364,6 +387,7 @@ def figure2() -> None:
             fontsize=7.4,
         )
         ax.set_xlim(-0.24, 1.24)
+        ax.set_ylim(-0.025,1.08)
         open_axes(ax, grid_axis="y")
         if index == 0:
             ax.set_ylabel("Mean log-normalized TGFB2")
@@ -385,7 +409,7 @@ def figure2() -> None:
             y,
             s=24 + 6 * row.n_patients,
             color=DIVERGING(norm(row.median_difference)),
-            edgecolor=INK if significant else "white",
+            edgecolor=INK if significant else GRAY,
             linewidth=0.75 if significant else 0.4,
         )
     ax.set_xticks(range(len(gene_order)), gene_order, rotation=32, ha="right")
@@ -405,6 +429,10 @@ def figure2() -> None:
     colorbar.outline.set_visible(False)
     colorbar.set_label("Median expression difference", fontsize=6.5)
     panel_label(ax, "b")
+    handles=[ax.scatter([],[],s=24+6*n,facecolor=PALE,edgecolor=GRAY,label=f"n={n}") for n in [2,4,7]]
+    handles.append(ax.scatter([],[],s=42,facecolor=PALE,edgecolor=INK,label="q < 0.05"))
+    ax.legend(handles=handles,loc="lower left",bbox_to_anchor=(0,1.16),ncol=4,frameon=False,fontsize=5.6,handletextpad=.3,columnspacing=.5,borderaxespad=0)
+
 
     ax = fig.add_subplot(gs[1, 1])
     ordered = meta.set_index("gene").loc[gene_order].reset_index()
@@ -423,20 +451,23 @@ def figure2() -> None:
             zorder=3,
         )
         ax.text(
-            row.meta_z + 0.11,
+            4.05,
             y,
             f"q={row.q_value:.2g}",
             va="center",
             fontsize=6.1,
             color=color,
         )
+    ax.set_xlim(-.1,5.5)
+    ax.set_xticks([0,1,2,3,4])
     ax.axvline(0, color=GRAY_DARK, linewidth=0.65)
     ax.set_yticks(yvals, ordered["gene"])
     ax.set_xlabel("Signed Stouffer z")
     ax.set_title("Cross-cohort evidence", pad=6)
     open_axes(ax)
     panel_label(ax, "c")
-    fig.subplots_adjust(left=0.10, right=0.97, top=0.95, bottom=0.11)
+    ax.text(0,1.16,"Coral: significant after every cohort omission",transform=ax.transAxes,fontsize=5.7,color=CORAL)
+    fig.subplots_adjust(left=0.10, right=0.95, top=0.95, bottom=0.11)
     save_figure(fig, FIGURES, "Figure2")
 
 
@@ -522,7 +553,7 @@ def figure3() -> None:
         marker="D",
         markersize=3.5,
     )
-    ax.set_xticks(range(3), region_order)
+    ax.set_xticks(range(3), [f"{region}\nn={wide[region].notna().sum()}" for region in region_order])
     ax.set_ylim(-0.04, 1.04)
     ax.set_ylabel("AC-like fraction of malignant cells")
     ax.set_title("274986/7 regional trajectories", pad=6)
@@ -561,153 +592,67 @@ def figure3() -> None:
             zorder=3,
         )
     ax.axvline(0, color=GRAY_DARK, linewidth=0.65, linestyle="--")
-    ax.set_yticks(yvals, [labels[item] for item in rows["comparison"]])
-    ax.set_xlabel("Region A minus B")
+    ax.set_yticks(yvals, [f"{labels[row.comparison]}  n={int(row.n_patients)}" for row in rows.itertuples()])
+    ax.set_xlabel("First region minus second")
     ax.set_title("Paired effects", pad=6)
     open_axes(ax)
     panel_label(ax, "c")
-    fig.subplots_adjust(left=0.11, right=0.98, top=0.95, bottom=0.11)
+    fig.subplots_adjust(left=0.11, right=0.96, top=0.95, bottom=0.14)
+    fig.axes[3].set_position([.11,.18,.48,.34])
+    fig.axes[4].set_position([.79,.18,.17,.34])
+    fig.axes[4].set_xticks([0,.25,.50])
+    fig.text(.11,.025,"T: tumor; C: core; E: edge; P: peritumoral / peripheral",fontsize=6.2,color=MUTED)
     save_figure(fig, FIGURES, "Figure3")
 
 
 def figure4() -> None:
-    regional = pd.read_csv(DATA / "regional_communication_tests.csv")
-    meta = pd.read_csv(DATA / "meta_ligand_results.csv")
-    comparisons = [
-        "GSE273274",
-        "GSE276177",
-        "GSE286419",
-        "GSE274987_core_peripheral",
-        "GSE274987_core_edge",
-    ]
-    labels = ["273274 T-P", "276177 T-P", "286419 T-P", "274987 C-P", "274987 C-E"]
-    pairs = [
-        "TGFB2-TGFBR1",
-        "TGFB2-TGFBR2",
-        "TGFB1-TGFBR1",
-        "ANXA1-FPR1",
-        "SPP1-CD44",
-        "CSF1-CSF1R",
-        "CCL2-CCR2",
-    ]
-    fig = plt.figure(figsize=(7.1, 5.25))
-    gs = GridSpec(
-        2,
-        2,
-        figure=fig,
-        height_ratios=[0.95, 1.05],
-        width_ratios=[1.22, 0.78],
-        hspace=0.55,
-        wspace=0.43,
-    )
-
-    ax = fig.add_subplot(gs[0, :])
-    max_abs = float(np.nanmax(np.abs(regional["median_difference"])))
-    norm = mpl.colors.Normalize(-max_abs, max_abs)
-    for row_index, (comparison, label) in enumerate(zip(comparisons, labels)):
-        y = len(comparisons) - 1 - row_index
-        frame = regional[regional["comparison"] == comparison].set_index("pair")
-        for x, pair in enumerate(pairs):
-            row = frame.loc[pair]
-            size = 22 + 130 * abs(row["median_difference"]) / max_abs
-            ax.scatter(
-                x,
-                y,
-                s=size,
-                color=DIVERGING(norm(row["median_difference"])),
-                edgecolor="white",
-                linewidth=0.45,
-            )
-        n = int(frame["n_patients"].iloc[0])
-        floor = float(frame["minimum_attainable_p"].min())
-        ax.text(len(pairs) - 0.1, y, f"n={n}  min p={floor:.3g}", va="center", fontsize=6.2, color=MUTED)
-    ax.set_xticks(
-        range(len(pairs)),
-        [pair.replace("-", "\n") for pair in pairs],
-    )
-    ax.set_yticks(range(len(comparisons)), labels[::-1])
-    ax.set_xlim(-0.55, len(pairs) + 1.10)
-    ax.set_ylim(-0.6, len(comparisons) - 0.4)
-    ax.set_title("Regional change in ligand-receptor co-availability", pad=6)
-    clean_axes(ax)
-    colorbar = fig.colorbar(
-        mpl.cm.ScalarMappable(norm=norm, cmap=DIVERGING),
-        ax=ax,
-        fraction=0.024,
-        pad=0.02,
-    )
-    colorbar.outline.set_visible(False)
-    colorbar.set_label("Median region A minus B", fontsize=6.3)
-    panel_label(ax, "a")
-
-    ax = fig.add_subplot(gs[1, 0])
-    yvals = np.arange(len(comparisons))[::-1]
-    for y, comparison in zip(yvals, comparisons):
-        frame = regional[
-            (regional["comparison"] == comparison)
-            & regional["pair"].isin(["TGFB2-TGFBR1", "TGFB2-TGFBR2"])
-        ].set_index("pair")
-        left = float(frame.loc["TGFB2-TGFBR1", "median_difference"])
-        right = float(frame.loc["TGFB2-TGFBR2", "median_difference"])
-        ax.plot([left, right], [y, y], color=GRID, linewidth=1.2)
-        ax.scatter(
-            [left, right],
-            [y, y],
-            s=[34, 34],
-            marker="o",
-            color=[CORAL, TEAL],
-            edgecolor="white",
-            linewidth=0.5,
-            zorder=3,
-        )
-    ax.axvline(0, color=GRAY_DARK, linewidth=0.65, linestyle="--")
-    ax.set_yticks(yvals, labels)
-    ax.set_xlabel("Median regional difference")
-    ax.set_title("TGFB2 receptor-specific effects", pad=6)
-    ax.legend(
-        handles=[
-            Line2D([0], [0], marker="o", color="none", markerfacecolor=CORAL, label="TGFBR1"),
-            Line2D([0], [0], marker="o", color="none", markerfacecolor=TEAL, label="TGFBR2"),
-        ],
-        loc="lower right",
-        ncol=2,
-        handletextpad=0.3,
-        columnspacing=0.8,
-    )
-    open_axes(ax)
-    panel_label(ax, "b")
-
-    ax = fig.add_subplot(gs[1, 1])
-    temp = regional.copy()
-    temp["gene"] = temp["pair"].str.split("-").str[0]
-    best_q = temp.groupby("gene", observed=True)["q_value"].min()
-    label_offsets = {
-        "CCL2": (0.05, 0.07),
-        "TGFB1": (0.05, -0.08),
-    }
+    regional=pd.read_csv(DATA/'regional_communication_tests.csv')
+    meta=pd.read_csv(DATA/'meta_ligand_results.csv')
+    comparisons=['GSE273274','GSE276177','GSE286419','GSE274987_core_peripheral','GSE274987_core_edge']
+    labels=['273274 T-P','276177 T-P','286419 T-P','274986/7 C-P','274986/7 C-E']
+    pairs=['TGFB2-TGFBR1','TGFB2-TGFBR2','TGFB1-TGFBR1','ANXA1-FPR1','SPP1-CD44','CSF1-CSF1R','CCL2-CCR2']
+    fig=plt.figure(figsize=(7.1,5.65))
+    gs=GridSpec(2,2,figure=fig,height_ratios=[.88,1.12],width_ratios=[1.18,.82],hspace=.60,wspace=.52)
+    ax=fig.add_subplot(gs[0,:]);max_abs=float(np.nanmax(np.abs(regional['median_difference'])))
+    norm=mpl.colors.Normalize(-max_abs,max_abs)
+    for i,comp in enumerate(comparisons):
+        y=4-i;frame=regional[regional.comparison==comp].set_index('pair')
+        for x,pair in enumerate(pairs):
+            row=frame.loc[pair]
+            ax.scatter(x,y,s=22+130*abs(row.median_difference)/max_abs,color=DIVERGING(norm(row.median_difference)),edgecolor=GRAY,linewidth=.35)
+        ax.text(6.8,y,str(int(frame.n_patients.iloc[0])),fontsize=6.1,ha='center',va='center',color=MUTED)
+        ax.text(7.65,y,f'{frame.minimum_attainable_p.min():.3g}',fontsize=6.1,ha='center',va='center',color=MUTED)
+    ax.text(6.8,4.6,'Pairs',ha='center',fontsize=6.1,color=MUTED)
+    ax.text(7.65,4.6,'Min. P',ha='center',fontsize=6.1,color=MUTED)
+    ax.set_xticks(range(7),[x.replace('-','\n') for x in pairs]);ax.tick_params(axis='x',labelsize=6.5)
+    ax.set_yticks(range(5),labels[::-1]);ax.set_xlim(-.5,8.2);ax.set_ylim(-.55,4.9)
+    ax.set_title('Regional ligand-receptor co-availability',pad=6);clean_axes(ax);panel_label(ax,'a')
+    cax=fig.add_axes([.925,.647,.012,.235]);cb=fig.colorbar(mpl.cm.ScalarMappable(norm=norm,cmap=DIVERGING),cax=cax)
+    cb.outline.set_visible(False);cb.ax.tick_params(labelsize=5.6)
+    cb.set_label('Median difference',fontsize=6,labelpad=2)
+    ax=fig.add_subplot(gs[1,0])
+    for i,comp in enumerate(comparisons):
+        for off,pair,col in [(.15,pairs[0],CORAL),(-.15,pairs[1],TEAL)]:
+            row=regional[(regional.comparison==comp)&(regional.pair==pair)].iloc[0]
+            values=np.asarray(json.loads(row.patient_differences),float);y=4-i+off
+            ax.scatter(values,y+np.linspace(-.035,.035,len(values)),s=13,color=col,alpha=.7,edgecolor='white',linewidth=.3)
+            ax.scatter(row.median_difference,y,s=28,marker='D',color=col,edgecolor=INK,linewidth=.55,zorder=4)
+    ax.axvline(0,color=GRAY_DARK,lw=.65,ls='--');ax.set_yticks(range(5),labels[::-1]);ax.set_ylim(-.5,4.55)
+    ax.set_xlabel('Patient regional difference');ax.set_title('TGFB2 patient-level effects',pad=6)
+    ax.legend(handles=[Line2D([],[],marker='o',color='none',markerfacecolor=col,markeredgecolor='white',label=lab) for col,lab in [(CORAL,'TGFBR1'),(TEAL,'TGFBR2')]],loc='lower left',bbox_to_anchor=(0,1.15),ncol=2,frameon=False,fontsize=6,borderaxespad=0)
+    open_axes(ax);panel_label(ax,'b')
+    ax=fig.add_subplot(gs[1,1]);best=regional.assign(gene=regional.pair.str.split('-').str[0]).groupby('gene').q_value.min()
     for row in meta.itertuples():
-        if row.gene not in best_q:
-            continue
-        x = -np.log10(max(row.q_value, 1e-12))
-        y = -np.log10(max(float(best_q.loc[row.gene]), 1e-12))
-        robust = row.loo_q_value < 0.05
-        color = CORAL if robust else GRAY_DARK
-        ax.scatter(x, y, s=36, color=color, edgecolor="white", linewidth=0.5)
-        dx, dy = label_offsets.get(row.gene, (0.04, 0.035))
-        ax.text(x + dx, y + dy, row.gene, fontsize=6.2, color=color)
-    limit = max(ax.get_xlim()[1], ax.get_ylim()[1], 1.45)
-    ax.plot([0, limit], [0, limit], color=GRAY, linestyle="--", linewidth=0.65)
-    ax.axhline(-np.log10(0.05), color=GRAY_DARK, linestyle=":", linewidth=0.65)
-    ax.axvline(-np.log10(0.05), color=GRAY_DARK, linestyle=":", linewidth=0.65)
-    ax.set_xlim(0, limit)
-    ax.set_ylim(0, limit)
-    ax.set_xlabel("Intrinsic evidence, -log10(q)")
-    ax.set_ylabel("Best regional evidence, -log10(q)")
-    ax.set_title("Evidence layers", pad=6)
-    open_axes(ax)
-    panel_label(ax, "c")
-    fig.subplots_adjust(left=0.12, right=0.97, top=0.95, bottom=0.12)
-    save_figure(fig, FIGURES, "Figure4")
+        x=-np.log10(max(row.q_value,1e-12));y=-np.log10(max(best[row.gene],1e-12));color=CORAL if row.gene=='TGFB2' else GRAY_DARK
+        ax.scatter(x,y,s=34,color=color,edgecolor='white',linewidth=.5)
+        offsets={'TGFB2':(-3,6),'TGFB1':(4,-7),'CCL2':(4,5),'ANXA1':(4,5),'CSF1':(4,5),'SPP1':(4,5)}
+        ax.annotate(row.gene,(x,y),xytext=offsets[row.gene],textcoords='offset points',fontsize=6,color=color,ha='right' if row.gene=='TGFB2' else 'left')
+    cut=-np.log10(.05);ax.axvline(cut,color=GRAY_DARK,lw=.65,ls=':');ax.axhline(cut,color=GRAY_DARK,lw=.65,ls=':')
+    ax.set_xlim(0,3.45);ax.set_ylim(0,3.15);ax.set_xlabel('Intrinsic evidence, −log10(q)');ax.set_ylabel('Best regional evidence, −log10(q)')
+    ax.set_title('Evidence across analyses',pad=6);open_axes(ax);panel_label(ax,'c')
+    fig.subplots_adjust(left=.14,right=.90,top=.92,bottom=.10)
+    fig.text(.14,.022,'T: tumor; C: core; E: edge; P: peritumoral / peripheral. Diamonds: medians.',fontsize=6,color=MUTED)
+    save_figure(fig,FIGURES,'Figure4')
 
 
 def supplementary_figure_s1() -> None:
@@ -1119,256 +1064,94 @@ def supplementary_figure_s5() -> None:
 
 
 def figure5() -> None:
-    result_dir = EXTERNAL_RESULTS / "gbmspace"
-    patient_ligands = pd.read_csv(result_dir / "patient_ligand_metrics.csv")
-    patient_spatial = pd.read_csv(result_dir / "patient_spatial_metrics.csv")
-    representative = pd.read_csv(result_dir / "representative_plot.csv")
-    tgfb2 = patient_ligands[patient_ligands["ligand"] == "TGFB2"].copy()
-    fig = plt.figure(figsize=(7.1, 5.25))
-    outer = GridSpec(2, 1, figure=fig, height_ratios=[0.82, 1.12], hspace=0.42)
-    top = GridSpecFromSubplotSpec(
-        1,
-        3,
-        subplot_spec=outer[0],
-        width_ratios=[1.0, 1.35, 1.20],
-        wspace=0.46,
-    )
-    bottom = GridSpecFromSubplotSpec(1, 3, subplot_spec=outer[1], wspace=0.32)
-
-    ax = fig.add_subplot(top[0, 0])
-    raw = tgfb2["rho_ac_fraction"].to_numpy(float)
-    adjusted = tgfb2["rho_ac_fraction_adjusted"].to_numpy(float)
-    for raw_value, adjusted_value in zip(raw, adjusted):
-        if np.isfinite(raw_value) and np.isfinite(adjusted_value):
-            ax.plot([0, 1], [raw_value, adjusted_value], color=GRID, linewidth=0.75)
-    ax.scatter(
-        RNG.normal(0, 0.03, len(raw)),
-        raw,
-        s=19,
-        color=TEAL,
-        edgecolor="white",
-        linewidth=0.4,
-    )
-    ax.scatter(
-        RNG.normal(1, 0.03, len(adjusted)),
-        adjusted,
-        s=19,
-        color=BLUE,
-        edgecolor="white",
-        linewidth=0.4,
-    )
-    median_bar(ax, 0, float(np.nanmedian(raw)), color=CORAL)
-    median_bar(ax, 1, float(np.nanmedian(adjusted)), color=CORAL)
-    ax.axhline(0, color=GRAY_DARK, linewidth=0.65, linestyle="--")
-    ax.set_xticks([0, 1], ["Raw", "Adjusted"])
-    ax.set_ylabel("Patient median rho")
-    ax.set_title("TGFB2-AC association", pad=6)
-    open_axes(ax)
-    panel_label(ax, "a")
-
-    ax = fig.add_subplot(top[0, 1])
-    plot_data = patient_ligands.pivot(
-        index="patient", columns="ligand", values="rho_ac_fraction_adjusted"
-    ).reindex(columns=LIGANDS)
-    for index, ligand in enumerate(LIGANDS):
-        values = plot_data[ligand].dropna().to_numpy(float)
-        ax.scatter(
-            np.full(len(values), index) + RNG.normal(0, 0.05, len(values)),
-            values,
-            s=14,
-            color=CORAL if ligand == "TGFB2" else GRAY_DARK,
-            alpha=0.72,
-            edgecolor="white",
-            linewidth=0.3,
-        )
-        if len(values):
-            median_bar(
-                ax,
-                index,
-                float(np.median(values)),
-                color=CORAL if ligand == "TGFB2" else INK,
-                width=0.30,
-                linewidth=1.6,
-            )
-    ax.axhline(0, color=GRAY_DARK, linewidth=0.65, linestyle="--")
-    ax.set_xticks(range(len(LIGANDS)), LIGANDS, rotation=38, ha="right")
-    ax.set_ylabel("Adjusted patient median rho")
-    ax.set_title("Fixed ligand panel", pad=6)
-    open_axes(ax)
-    panel_label(ax, "b")
-
-    nested = GridSpecFromSubplotSpec(1, 2, subplot_spec=top[0, 2], wspace=0.62)
-    ax = fig.add_subplot(nested[0, 0])
-    add_strip(
-        ax,
-        tgfb2["mean_top_minus_bottom_ac_delta"],
-        title="AC-rich contrast",
-        ylabel="TGFB2 delta",
-    )
-    ax.set_title("AC-rich\ncontrast", fontsize=7.6, pad=4)
-    panel_label(ax, "c")
-    ax = fig.add_subplot(nested[0, 1])
-    add_strip(
-        ax,
-        patient_spatial["tgfb2_neighbor_receiver_delta"],
-        title="Neighbor receiver",
-        ylabel="",
-        color=PURPLE,
-    )
-    ax.set_title("Neighbor\nreceiver", fontsize=7.6, pad=4)
-    panel_label(ax, "d")
-
-    spatial_specs = [
-        ("ac_fraction", "AC-like fraction", TEAL_SEQ),
-        ("tgfb2", "TGFB2 expression", CORAL_SEQ),
-        ("receiver", "Myeloid x TGFBR score", PURPLE_SEQ),
-    ]
-    for index, (field, title, cmap) in enumerate(spatial_specs):
-        ax = fig.add_subplot(bottom[0, index])
-        add_spatial(
-            fig,
-            ax,
-            representative,
-            x="x",
-            y="y",
-            value=field,
-            title=title,
-            cmap=cmap,
-            point_size=3.0,
-        )
-        panel_label(ax, chr(ord("e") + index))
-    fig.subplots_adjust(left=0.09, right=0.98, top=0.92, bottom=0.07)
-    save_figure(fig, FIGURES, "Figure5")
+    result_dir=EXTERNAL_RESULTS/'gbmspace'
+    ligands=pd.read_csv(result_dir/'patient_ligand_metrics.csv');spatial=pd.read_csv(result_dir/'patient_spatial_metrics.csv')
+    representative=pd.read_csv(result_dir/'representative_plot.csv');summary=json.loads((result_dir/'analysis_summary.json').read_text())
+    tgfb2=ligands[ligands.ligand=='TGFB2'];stats=summary['tgfb2']
+    fig=plt.figure(figsize=(7.1,6.05))
+    outer=GridSpec(2,1,figure=fig,height_ratios=[.95,1.1],hspace=.48)
+    top=GridSpecFromSubplotSpec(1,4,subplot_spec=outer[0],width_ratios=[1.42,1.55,1,1],wspace=.80)
+    ax=fig.add_subplot(top[0,0]);raw=tgfb2.rho_ac_fraction.to_numpy(float);adj=tgfb2.rho_ac_fraction_adjusted.to_numpy(float)
+    for a,b in zip(raw,adj):
+        if np.isfinite(a) and np.isfinite(b):ax.plot([0,1],[a,b],color=GRID,lw=.75)
+    for x,values,col in [(0,raw,TEAL),(1,adj,BLUE)]:
+        ax.scatter(x+RNG.normal(0,.025,len(values)),values,s=17,color=col,edgecolor='white',linewidth=.35)
+    median_bar(ax,0,stats['rho_ac_fraction_median'],color=CORAL);median_bar(ax,1,stats['rho_ac_fraction_adjusted_median'],color=CORAL)
+    ax.axhline(0,color=GRAY_DARK,lw=.65,ls='--');ax.set_xticks([0,1],['Raw','Adjusted']);ax.tick_params(axis='x',labelsize=6.1)
+    ax.set_ylim(-.16,.225);ax.set_ylabel('Patient median rho');ax.set_title('TGFB2–AC\nassociation',fontsize=7.6,pad=6)
+    ax.text(.02,.98,f"n={int(stats['n_patients'])}\nq={stats['rho_ac_fraction_signflip_q']:.2g} / {stats['rho_ac_fraction_adjusted_signflip_q']:.3f}",transform=ax.transAxes,va='top',fontsize=5.8,color=MUTED)
+    open_axes(ax);panel_label(ax,'a')
+    ax=fig.add_subplot(top[0,1]);pivot=ligands.pivot(index='patient',columns='ligand',values='rho_ac_fraction_adjusted').reindex(columns=LIGANDS)
+    for j,ligand in enumerate(LIGANDS):
+        values=pivot[ligand].dropna().to_numpy(float);col=CORAL if ligand=='TGFB2' else GRAY_DARK
+        ax.scatter(j+RNG.normal(0,.045,len(values)),values,s=12,color=col,alpha=.7,edgecolor='white',linewidth=.25)
+        median_bar(ax,j,float(np.median(values)),color=col if ligand=='TGFB2' else INK,width=.35,linewidth=1.5)
+    ax.axhline(0,color=GRAY_DARK,lw=.65,ls='--');ax.set_xticks(range(6),LIGANDS,rotation=55,ha='right');ax.tick_params(axis='x',labelsize=5.8)
+    ax.set_ylabel('Adjusted patient median rho');ax.set_title('Fixed ligand\npanel',fontsize=7.6,pad=6);open_axes(ax);panel_label(ax,'b')
+    ax=fig.add_subplot(top[0,2]);add_strip(ax,tgfb2.mean_top_minus_bottom_ac_delta,title='AC-rich\ncontrast',ylabel='TGFB2 difference')
+    ax.set_title('AC-rich\ncontrast',fontsize=7.6,pad=6);ax.yaxis.label.set_size(6.5);ax.tick_params(labelsize=6);panel_label(ax,'c')
+    ax=fig.add_subplot(top[0,3]);add_strip(ax,spatial.tgfb2_neighbor_receiver_delta,title='Neighbor\nreceiver',ylabel='Receiver-score difference',color=PURPLE)
+    ax.set_title('Neighbor\nreceiver',fontsize=7.6,pad=6);ax.yaxis.label.set_size(6.5);ax.tick_params(labelsize=6)
+    ax.set_ylim(-.005,.026)
+    prox=summary['proximity']['tgfb2_neighbor_receiver_delta'];ax.text(.04,.98,f"n={prox['n']}\nP={prox['signflip_p']:.3f}",transform=ax.transAxes,va='top',fontsize=5.8,color=MUTED)
+    panel_label(ax,'d')
+    bottom=GridSpecFromSubplotSpec(1,3,subplot_spec=outer[1],wspace=.48)
+    specs=[('ac_fraction','AC-like fraction',TEAL_SEQ),('tgfb2','TGFB2 expression',CORAL_SEQ),('receiver','Myeloid × TGFBR',PURPLE_SEQ)]
+    colorbar_axes=[]
+    for i,(field,title,cmap) in enumerate(specs):
+        inner=GridSpecFromSubplotSpec(1,2,subplot_spec=bottom[0,i],width_ratios=[1,.05],wspace=.08)
+        ax=fig.add_subplot(inner[0,0]);values=pd.to_numeric(representative[field],errors='coerce').to_numpy(float);valid=np.isfinite(values)
+        lo,hi=np.quantile(values[valid],[.01,.99])
+        sc=ax.scatter(representative.x,-representative.y,c=values,s=3,cmap=cmap,vmin=lo,vmax=hi,linewidths=0,rasterized=True)
+        ax.set_aspect('equal');ax.set_xticks([]);ax.set_yticks([]);clean_axes(ax);ax.set_title(title,fontsize=7.6,pad=6);panel_label(ax,chr(ord('e')+i))
+        cax=fig.add_subplot(inner[0,1]);cb=fig.colorbar(sc,cax=cax);cb.outline.set_visible(False);cb.ax.tick_params(labelsize=5.5,width=.45,length=1.8)
+        colorbar_axes.append((ax,cax))
+    fig.subplots_adjust(left=.075,right=.95,top=.885,bottom=.075)
+    fig.canvas.draw()
+    for spatial_ax,cax in colorbar_axes:
+        pos=cax.get_position(); image_pos=spatial_ax.get_position()
+        cax.set_position([pos.x0,image_pos.y0,pos.width,image_pos.height])
+    sample=representative['sample'].dropna().unique();assert len(sample)==1
+    fig.text(.075,.018,f'Representative section: {sample[0]}; identical coordinates and orientation in e–g.',fontsize=6.1,color=MUTED)
+    save_figure(fig,FIGURES,'Figure5')
 
 
 def figure6() -> None:
-    result_dir = EXTERNAL_RESULTS / "cptac_gbm"
-    comparisons = pd.read_csv(result_dir / "ligand_tumor_normal.csv")
-    plex = pd.read_csv(result_dir / "tgfb2_plex_matched_contrasts.csv")
-    associations = pd.read_csv(result_dir / "tgfb2_tumor_associations.csv")
-    ordered = comparisons.set_index("gene").loc[LIGANDS].reset_index()
-    tgfb2 = ordered[ordered["gene"] == "TGFB2"].iloc[0]
-    fig, axes = plt.subplots(2, 2, figsize=(7.1, 4.75))
-
-    ax = axes[0, 0]
-    ax.plot(
-        [0, 1],
-        [tgfb2["tumor_median"], tgfb2["normal_median"]],
-        color=GRID,
-        linewidth=1.4,
-    )
-    ax.scatter(
-        [0, 1],
-        [tgfb2["tumor_median"], tgfb2["normal_median"]],
-        s=58,
-        color=[CORAL, TEAL],
-        edgecolor="white",
-        linewidth=0.65,
-        zorder=3,
-    )
-    ax.text(
-        0.50,
-        0.08,
-        f"Median delta = {tgfb2['median_difference']:.2f}",
-        transform=ax.transAxes,
-        ha="center",
-        fontsize=6.5,
-        color=MUTED,
-    )
-    ax.set_xticks(
-        [0, 1],
-        [
-            f"GBM tumor\nn={int(tgfb2['n_tumor'])}",
-            f"Normal brain\nn={int(tgfb2['n_normal'])}",
-        ],
-    )
-    ax.set_ylabel("TGFB2 protein log2 ratio")
-    ax.set_title("Tissue-level TGFB2 signal", pad=6)
-    open_axes(ax, grid_axis="y")
-    panel_label(ax, "a")
-
-    ax = axes[0, 1]
-    yvals = np.arange(len(ordered))[::-1]
-    for y, row in zip(yvals, ordered.itertuples()):
-        color = CORAL if row.gene == "TGFB2" else GRAY_DARK
-        ax.plot(
-            [row.median_difference_ci_low, row.median_difference_ci_high],
-            [y, y],
-            color=color,
-            linewidth=1.2,
-        )
-        ax.scatter(
-            row.median_difference,
-            y,
-            s=34,
-            color=color,
-            edgecolor="white",
-            linewidth=0.5,
-            zorder=3,
-        )
-    ax.axvline(0, color=GRAY_DARK, linewidth=0.65, linestyle="--")
-    ax.set_yticks(yvals, ordered["gene"])
-    ax.set_xlabel("Tumor minus normal median log2 ratio")
-    ax.set_title("Fixed ligand panel, 95% bootstrap CI", pad=6)
-    open_axes(ax)
-    panel_label(ax, "b")
-
-    ax = axes[1, 0]
-    plex = plex.sort_values("tmt_plex")
-    yvals = np.arange(len(plex))[::-1]
-    ax.scatter(
-        plex["median_difference"],
-        yvals,
-        s=28,
-        color=TEAL,
-        edgecolor="white",
-        linewidth=0.45,
-    )
-    ax.axvline(0, color=GRAY_DARK, linewidth=0.65, linestyle="--")
-    ax.set_yticks(yvals, [f"Plex {item}" for item in plex["tmt_plex"]])
-    ax.set_xlabel("Tumor minus normal TGFB2 median")
-    ax.set_title("Matched TMT plex contrasts", pad=6)
-    open_axes(ax, grid_axis="x")
-    panel_label(ax, "c")
-
-    ax = axes[1, 1]
-    labels = {
-        "astrocytic_protein_score": "Astrocytic",
-        "myeloid_protein_score": "Myeloid",
-        "tgfbr_protein_score": "TGFBR",
-    }
-    ordered_assoc = associations.assign(
-        label=associations["score"].map(labels)
-    ).sort_values("spearman_rho")
-    yvals = np.arange(len(ordered_assoc))
-    for y, row in zip(yvals, ordered_assoc.itertuples()):
-        color = CORAL if row.spearman_q < 0.05 else GRAY_DARK
-        ax.plot([0, row.spearman_rho], [y, y], color=GRID, linewidth=1.3)
-        ax.scatter(
-            row.spearman_rho,
-            y,
-            s=36,
-            color=color,
-            edgecolor="white",
-            linewidth=0.5,
-        )
-        ax.text(
-            row.spearman_rho + 0.012,
-            y,
-            f"q={row.spearman_q:.2g}",
-            va="center",
-            fontsize=6.2,
-            color=MUTED,
-        )
-    ax.axvline(0, color=GRAY_DARK, linewidth=0.65)
-    ax.set_yticks(yvals, ordered_assoc["label"])
-    ax.set_xlim(-0.16, 0.24)
-    ax.set_xlabel("Spearman rho with TGFB2 protein")
-    ax.set_title("Tumor protein-score associations", pad=6)
-    open_axes(ax)
-    panel_label(ax, "d")
-    fig.subplots_adjust(left=0.12, right=0.98, top=0.95, bottom=0.12, hspace=0.48, wspace=0.43)
-    save_figure(fig, FIGURES, "Figure6")
+    result_dir=EXTERNAL_RESULTS/'cptac_gbm';comp=pd.read_csv(result_dir/'ligand_tumor_normal.csv');plex=pd.read_csv(result_dir/'tgfb2_plex_matched_contrasts.csv')
+    assoc=pd.read_csv(result_dir/'tgfb2_tumor_associations.csv');samples=pd.read_csv(result_dir/'tgfb2_sample_values.csv')
+    summary=json.loads((result_dir/'analysis_summary.json').read_text());tgfb2=comp.set_index('gene').loc['TGFB2']
+    fig,axes=plt.subplots(2,2,figsize=(7.1,5.25));ax=axes[0,0]
+    for x,group,col in [(0,'tumor',CORAL),(1,'normal',TEAL)]:
+        values=samples.loc[samples.group==group,'tgfb2_log2_ratio'].to_numpy(float)
+        ax.scatter(x+RNG.uniform(-.11,.11,len(values)),values,s=12 if group=='tumor' else 20,color=col,alpha=.7,edgecolor='white',linewidth=.3)
+        median_bar(ax,x,tgfb2[group+'_median'],color=INK,width=.38)
+    ax.set_xticks([0,1],[f"GBM tumor\nn={int(tgfb2.n_tumor)}",f"Normal brain\nn={int(tgfb2.n_normal)}"])
+    ax.set_xlim(-.35,1.35);ax.set_ylabel('Relative TGFB2 protein (log2 ratio)');ax.set_title('Tissue-level TGFB2',pad=6)
+    ax.text(.02,.97,f"Median delta = {tgfb2.median_difference:.2f}",transform=ax.transAxes,va='top',fontsize=6.1,color=MUTED)
+    # 为注释留出轴内顶部空间，不改变点值。
+    ymin,ymax=ax.get_ylim();ax.set_ylim(ymin,ymax+.18*(ymax-ymin));open_axes(ax,grid_axis='y');panel_label(ax,'a')
+    ax=axes[0,1];ordered=comp.set_index('gene').loc[LIGANDS].reset_index()
+    for y,row in zip(range(5,-1,-1),ordered.itertuples()):
+        col=CORAL if row.gene=='TGFB2' else GRAY_DARK
+        ax.plot([row.median_difference_ci_low,row.median_difference_ci_high],[y,y],color=col,lw=1.2)
+        ax.scatter(row.median_difference,y,s=32,color=col,edgecolor='white',linewidth=.5,zorder=3)
+    ax.axvline(0,color=GRAY_DARK,lw=.65,ls='--');ax.set_yticks(range(5,-1,-1),LIGANDS)
+    ax.set_xlabel('Tumor minus normal median log2 ratio',fontsize=6.8);ax.set_title('Ligand contrasts, 95% CI',pad=6);open_axes(ax);panel_label(ax,'b')
+    ax=axes[1,0];plex=plex.sort_values('tmt_plex');y=np.arange(len(plex))[::-1]
+    ax.scatter(plex.median_difference,y,s=25,color=TEAL,edgecolor='white',linewidth=.4);ax.set_yticks(y,[f'Plex {v}' for v in plex.tmt_plex]);ax.axvline(0,color=GRAY_DARK,lw=.65,ls='--')
+    ax.set_xlabel('Tumor minus normal TGFB2 median',fontsize=6.8);ax.set_title('Within-plex contrasts',pad=6)
+    ax.text(.04,.98,f"Exact P={summary['tgfb2_plex_matched']['exact_signflip_p']:.3g}",transform=ax.transAxes,va='top',fontsize=6.1,color=MUTED)
+    ax.set_ylim(-.6,10.2);open_axes(ax,grid_axis='x');panel_label(ax,'c')
+    ax=axes[1,1];names={'astrocytic_protein_score':'Astrocytic','myeloid_protein_score':'Myeloid','tgfbr_protein_score':'TGFBR'}
+    ordered=assoc.assign(label=assoc.score.map(names)).sort_values('spearman_rho')
+    for y,row in enumerate(ordered.itertuples()):
+        col=CORAL if row.spearman_q<.05 else GRAY_DARK
+        ax.plot([0,row.spearman_rho],[y,y],color=GRID,lw=1.3);ax.scatter(row.spearman_rho,y,s=32,color=col,edgecolor='white',linewidth=.5)
+        ax.text(.235,y,f'q={row.spearman_q:.2g}',va='center',fontsize=6.2,color=MUTED)
+    ax.axvline(0,color=GRAY_DARK,lw=.65);ax.set_yticks(range(3),ordered.label);ax.set_xlim(-.16,.36);ax.set_xticks([-.1,0,.1,.2])
+    ax.set_xlabel('Spearman rho with TGFB2 protein',fontsize=6.8);ax.set_title('Tumor protein-score associations',pad=6);open_axes(ax);panel_label(ax,'d')
+    fig.subplots_adjust(left=.13,right=.955,top=.94,bottom=.11,hspace=.55,wspace=.52)
+    save_figure(fig,FIGURES,'Figure6')
 
 
 def supplementary_figure_s6() -> None:
@@ -1605,4 +1388,13 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--main-only',action='store_true',help='Render Fig1–6 from frozen inputs; do not run statistical analysis.')
+    parser.add_argument('--output',type=Path,help='Output folder for figure files and layout checks.')
+    args=parser.parse_args()
+    if args.output:FIGURES=args.output
+    if args.main_only:
+        configure_plottie_style()
+        for fn in [figure1,figure2,figure3,figure4,figure5,figure6]:fn()
+    else:main()
