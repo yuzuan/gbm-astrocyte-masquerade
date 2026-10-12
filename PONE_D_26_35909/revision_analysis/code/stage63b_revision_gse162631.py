@@ -10,7 +10,12 @@ from stage63_revision_preprocessing import OUT, GENES, assign_states, summarize_
 
 
 def run_raw_audit():
-    source=Path(os.environ.get('GSE162631_RAW_ROOT',str(Path.cwd() / 'public_inputs' / 'GSE162631')))
+    source_value = os.environ.get('GSE162631_RAW_ROOT')
+    if not source_value:
+        raise ValueError('GSE162631_RAW_ROOT is required for the source-count audit')
+    source = Path(source_value).expanduser()
+    if not source.is_dir():
+        raise FileNotFoundError('GSE162631_RAW_ROOT must point to an existing source directory')
     obs=pd.read_csv(OUT/'analysis/cache/GSE162631_metadata.csv.gz')
     data=np.load(OUT/'analysis/cache/GSE162631_expression.npz')
     assert data['genes'].tolist()==GENES
