@@ -256,7 +256,7 @@ def figure1() -> None:
     ax.set_yticks(yvals, [cohort_display(item) for item in manifest["cohort"]])
     ax.set_xlim(-0.42, 3.15)
     ax.set_ylim(-0.6, len(manifest) - 0.4)
-    ax.set_title("Source cohorts and sampled regions", pad=6)
+    ax.set_title("Included cohorts and sampled regions", pad=6)
     clean_axes(ax)
     panel_label(ax, "a")
 
@@ -329,7 +329,7 @@ def figure1() -> None:
                     arrowprops=dict(arrowstyle="-|>", color=GRAY_DARK, linewidth=0.75),
                 )
     panel_label(ax, "c")
-    fig.text(.11,.45,"N: source-cohort patients; eligible TGFB2 patients are shown in Fig 2a",fontsize=6.2,color=MUTED)
+    fig.text(.11,.45,"N: included cohort patients; eligible TGFB2 patients are shown in Fig 2a",fontsize=6.2,color=MUTED)
     fig.subplots_adjust(left=0.11, right=0.95, top=0.94, bottom=0.07)
     save_figure(fig, FIGURES, "Figure1")
 
