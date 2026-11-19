@@ -1,0 +1,12 @@
+source_layer,source_node,target_layer,target_node
+Ligand,TGFB2,Receptor,TGFBR
+Ligand,SPP1,Receptor,CD44
+Ligand,CSF1,Receptor,CSF1R
+Receptor,TGFBR,TF,SMAD3
+Receptor,CD44,TF,NF-κB
+Receptor,CSF1R,TF,STAT3
+TF,SMAD3,Target,IL10
+TF,NF-κB,Target,ARG1
+TF,STAT3,Target,IL10
+TF,STAT3,Target,VEGFA
+TF,NF-κB,Target,VEGFA

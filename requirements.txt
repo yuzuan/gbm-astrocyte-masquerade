@@ -1,4 +1,5 @@
-# Python 3.11
+# Tested with Python 3.11. Install Poppler separately for PDF export and inspection.
+# GSE174554 was reclustered with NumPy 2.3.5, scikit-learn 1.8.0, igraph 0.11.9 and leidenalg 0.10.2.
 numpy
 pandas
 scipy
@@ -6,5 +7,13 @@ scikit-learn
 matplotlib
 anndata
 h5py
-harmonypy
+harmonypy==0.0.10
+igraph
 leidenalg
+statsmodels
+seaborn
+openpyxl
+Pillow
+pypdf
+jupyterlab
+ipykernel

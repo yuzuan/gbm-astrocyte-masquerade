@@ -1,4 +1,4 @@
-> **Current PLOS ONE manuscript release:** [PONE-D-26-35909](PONE_D_26_35909/README.md) contains the patient-level TGFB2 analyses, recoded derived inputs, and October 2026 revision. The repository-root description and stage01-stage26 scripts below document an earlier project version and do not describe the revised manuscript’s conclusions.
+> **Current PLOS ONE manuscript** · [Patient-level TGFB2 analysis, data and reproduction instructions](PONE_D_26_35909/README.md). The numbered scripts at the repository root belong to the earlier astrocyte study described below.
 
 # gbm-astrocyte-masquerade
 
@@ -23,54 +23,31 @@ Single-cell/nucleus RNA-seq of IDH-wildtype glioblastoma routinely resolves an "
 
 Bulk survival: TCGA-GBM (UCSC Xena, HiSeqV2) and CGGA (mRNAseq_693).
 
-## Repository layout
+## Reproduce the earlier study
 
+Use Python 3.11, install the packages in `requirements.txt`, and install Poppler with `pdfinfo`, `pdftotext`, `pdftoppm` and `pdftocairo` on PATH. Run the numbered scripts from the repository root. Each script header gives its input filenames, output filenames and invocation. New results are grouped by stage under `03_result/`.
+
+| Run order | Purpose | Stage numbers in the earlier release |
+|---|---|---|
+| 01–03 | Immune-referenced CNV scoring in snGBM and GSE211376, including the marker-defined astrocyte group | 01–02, 03, 04 |
+| 04–06 | Recluster GSE174554, reproduce the archived cluster-specific CNV analysis, and compare matched thresholds across cohorts | 07, 05–06, 08 |
+| 07–10 | scGBM communication and mixing analysis, snGBM ligand rankings, and sender-cell filtering in GSE211376 and GSE174554 | 09–10, 11, 12, 13 |
+| 11–13 | Cross-cohort expression and ranks for the immune panel, then tumor and peritumor AC-like expression in scGBM | 14, 15, 16 |
+| 14–19 | Generate Figures 1–6 | 20–25 |
+| 20 | Generate the graphical abstract | 26 |
+
+The GEO matrices, processed AnnData objects and upstream annotations are separate inputs. Place the scGBM and snGBM objects under `data/external/`, the GSE174554 matrices under `data/GSE174554/`, and the accession-specific matrices, metadata and intermediate tables listed in each script under `data/intermediate/`. Other earlier-study inputs such as `cell_metadata.csv` and `infercnv_cell_scores.csv` go directly under `data/`. Some stages consume existing inferCNV, LIANA or transcription-factor activity outputs. Downloading an expression matrix alone does not reconstruct those intermediates.
+
+Stage 04 reclusters the GSE174554 cells. For historical reproduction, stage 05 reads the original `gse174554_cluster.npz` and the matching `gse174554_cluster_markers.csv` from `data/intermediate/`. Stage 10 uses the partition and CNV values recorded together by stage 05. The archived partition had 18 clusters. Re-running the clustering with the validated environment produced 16. The numerical cluster labels cannot be interchanged. The archive records sample and tissue order. Stage 05 reconstructs row keys from the RNA libraries and labels them `reconstructed_cell_id`. The archive lacks original barcodes for independently checking the order within a sample and tissue.
+
+The first command below runs a CNV analysis with the source inputs present. The second renders Figure 1. Six small [figure source tables](01_图件来源/) transcribe values, labels or schematic connections explicitly listed in the earlier Git release. Panels whose values were read from external files require the corresponding analysis output or named local input. The [per-panel input guide](01_图件来源/12_冻结作图表来源.md) lists these dependencies. Each plot is saved as a PDF master and a PNG rendered from that PDF.
+
+```sh
+python 01_snGBM免疫参照CNV验证.py
+python 14_Fig1队列与研究设计.py
 ```
-gbm-astrocyte-masquerade/
-├── stage01-02 … stage26   analysis pipeline (see below)
-├── requirements.txt
-├── LICENSE
-├── .gitignore
-└── data/                  inputs & intermediates (not tracked — see Data)
-    ├── intermediate/       per-stage intermediate outputs
-    └── external/           externally processed h5ad (scGBM, snGBM)
-```
 
-## Data
-
-All primary data are publicly available from NCBI GEO under the accessions above; **raw data are not included in this repository**. Download the matrices from GEO and place them (plus the per-stage intermediate files) under `data/`. A per-sample manifest (accession, tissue, IDH status) is provided with the manuscript as Supplementary Table S1.
-
-> **Note on paths.** The scripts in this repository reflect the analysis exactly as run. Absolute local paths in the original scripts have been replaced with a `data/`-relative layout for release (no analysis logic was changed); adjust the `data/` paths to match your own environment.
-
-## Environment
-
-- Python 3.11
-- `pip install -r requirements.txt` (numpy, pandas, scipy, scikit-learn, matplotlib, anndata, h5py, harmonypy, leidenalg)
-
-Several upstream steps referenced in the Methods (inferCNV / copy-number scoring, LIANA cell–cell communication, decoupler/CollecTRI transcription-factor activity) were run with their respective tools; their outputs are consumed by the scripts here.
-
-## Pipeline stages
-
-**CNV validation & clustering (01–08)**
-- `stage01-02` — snGBM (GSE276177+GSE286419) non-circular +7/−10 CNV validation
-- `stage03` — GSE211376 non-circular CNV validation
-- `stage04` — GSE211376 marker-defined astrocyte (non-circular)
-- `stage05-06` — GSE174554 Harmony integration, Leiden clustering, CNV scoring
-- `stage07` — GSE174554 cluster marker annotation
-- `stage08` — cross-cohort threshold matching
-
-**Communication & immune-evasion (09–16)**
-- `stage09-10` — malignant→microenvironment communication (CellPhoneDB-style product statistic)
-- `stage11` — LIANA cross-method validation
-- `stage12` — GSE211376 astrocyte-cluster decontamination
-- `stage13` — GSE174554 astrocyte-cluster decontamination
-- `stage14` — 41-gene immune-evasion panel, cross-cohort
-- `stage15` — Figure 6 cross-cohort concordance
-- `stage16` — scGBM AC-masquerade validation
-
-**Figures (20–26)**
-- `stage20`–`stage25` — main Figures 1–6
-- `stage26` — graphical abstract
+The [analysis layout and executable entry points](ARCHITECTURE.md) cover both studies. The [October release](https://github.com/yuzuan/gbm-astrocyte-masquerade/tree/a63d6b46c531a786a266a1303b3b5bd7b1ba0bd3) preserves the original script filenames for earlier citations.
 
 ## Citation
 

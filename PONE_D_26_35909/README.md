@@ -1,14 +1,20 @@
-# PONE-D-26-35909: patient-level TGFB2 analysis
+# PONE-D-26-35909 · Patient-level TGFB2 analysis
 
-Current manuscript: **Patient-level public multi-omic analysis supports aggregate astrocyte-like TGFB2 association without consistent evidence for myeloid signaling in glioblastoma**. Revision release, 12 October 2026.
+**Patient-level public multi-omic analysis supports aggregate astrocyte-like TGFB2 association without consistent evidence for myeloid signaling in glioblastoma**. The revised scientific release dates to 12 October 2026.
 
-This directory is the manuscript-specific release. The repository-root scripts relate to an earlier project and are not the pipeline used for this revised manuscript.
+## Run from the supplied data
 
-- `original_analysis/`: original analysis code, recoded minimal expression inputs, source tables and upstream workflows. Run `python reproduce_primary.py` in that directory to reproduce eight primary result tables.
-- `revision_analysis/`: new random-effects, preprocessing and source-count verification scripts. Run `Revision_analysis.ipynb` to reproduce the 16 effect-size models and supplementary figures from supplied patient-level inputs.
-- `main_figures/`: optimized Fig1–6 upload TIFFs, using the original palette and frozen numerical results. The rendering entry point is documented in `original_analysis/README_PLOS_S13_FILE.txt`.
-- `supporting_data/`: revised S8-S14 workbooks, using the same study-local patient codes as both code directories.
+Install the Python dependencies from the repository's requirements file. The revision models also use R with `metafor`. Install Poppler for PDF rendering and inspection. The full Greenwald analysis also uses the R packages `jsonlite` and `pdftools`. Run these commands from the repository root.
 
-Reproduction checks passed for the eight primary tables and all 16 revision models. Patient identifiers and cell barcodes are recoded; original identifier crosswalks are not distributed. Full upstream count-level processing requires the separately acquired inputs documented in each directory. Reproduction of supplied patient-level statistical results is distinct from rerunning source cell selection or malignant annotation.
+```sh
+python -m pip install -r requirements.txt
+python PONE_D_26_35909/original_analysis/14_复现患者主结果.py
+cd PONE_D_26_35909/revision_analysis
+jupyter lab 06_复现返修模型.ipynb
+```
 
-Code is available for unrestricted reuse under the MIT license. Public source datasets retain their original repository terms. No manuscript correspondence or private review files are included.
+In Jupyter, select the Python environment used to install the requirements and run all cells. The [primary analysis](original_analysis/README_PLOS_S13_FILE.txt) rebuilds eight patient-level tables from the four supplied expression objects. The [revision notebook and full count workflow](revision_analysis/README.md) fit 16 effect-size models from patient contrasts, check the results independently and regenerate supplementary figures S15–S17. For the plots corresponding to the six [manuscript TIFFs](main_figures/), use the submission renderer listed in the primary-analysis instructions.
+
+The [supporting workbooks](supporting_data/) contain S8, S9, S10, S11, S12 and S14. S13 is the original analysis code package. Patient codes are sequential within each cohort. Match patients by cohort and patient code together. Reconstruction of the original annotation and count processing requires the larger source files documented in each analysis directory. The eight output-cleared upstream notebooks are archived as source records.
+
+Code is available under the MIT license. Public source datasets retain their original repository terms.

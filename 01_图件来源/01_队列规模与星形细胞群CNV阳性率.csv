@@ -1,0 +1,5 @@
+cohort,cells,patients,platform,astro_pct
+GSE211376,39355,11,snRNA-seq,72.5
+GSE162631+273274,135535,7,scRNA-seq,88.2
+GSE276177+286419,68920,6,snRNA-seq,71.0
+GSE174554,228319,80,snRNA-seq,66.0

@@ -1,23 +1,42 @@
 # Revision analysis reproduction
 
-Manuscript PONE-D-26-35909; analyses added in response to peer review, 12 October 2026.
+The sensitivity analyses for PONE-D-26-35909 are described in the [October 2026 analysis plan](ANALYSIS_PLAN.md).
 
-## Lightweight, independently executable route
+## Refit the published models
 
-Open `Revision_analysis.ipynb` from this directory and run all cells. It fits every REML/modified Knapp-Hartung model from `analysis/meta_patient_inputs.csv`, independently verifies the numerical estimates in SciPy, checks the supplied audit summaries and regenerates S15-S17 figures. It requires Python with NumPy, pandas, SciPy, Matplotlib, AnnData and h5py, and R with metafor installed. `Rscript` must be on PATH, or set `RSCRIPT` to its executable. Exact versions used are in validation/. Figures reuse the original submission plottie_figure_style.py unchanged: Arial/Helvetica font preference, 7.1-inch canvas width, shared panel headings and semantic cell-state colors (AC-like coral; other malignant blue). The notebook writes to `reproduced/` and does not overwrite the supplied reference tables. It does not rerun source count extraction or independently verify source files not supplied in this archive.
+Open [06_复现返修模型.ipynb](06_复现返修模型.ipynb) in this directory and run all cells. Use the Python environment with the dependencies from the repository root, R with `metafor`, and Poppler's `pdftocairo`. `Rscript` must be on PATH, or set `RSCRIPT` to the executable. The archived [software versions](validation/) document the original run.
 
-Patient identifiers are sequential within each cohort; use cohort + patient as the key. No cell barcodes or metadata cache is included. Codes correspond to S9-S14 Data; source-count sample rows use the corresponding Pn-S1 code. GSE274987 is the historical internal label for the joint human GSE274986/GSE274987 source-study cohort, not a separate independent cohort.
+The notebook takes the supplied [patient contrasts and audit tables](analysis/) as inputs. It fits the 16 REML models with modified Knapp–Hartung intervals, checks the fits independently in SciPy, compares the three model tables against their published references, and regenerates S15–S17. To export the S14 workbook from those results, run `PLOS_REVISION_DIR=03_result/06_公开复现 python code/05c_导出患者补充工作簿.py` with the default paths. The notebook always writes under `06_公开复现/` within `03_result/` or within the output root selected by `PLOS_REVISION_DIR`. The full-count stages use that root directly.
 
-## Full count-level workflow and input requirements
+Patient codes apply within each cohort. The source-count summaries use the corresponding Pn-S1 codes. GSE274987 is the historical analysis label for the joint GSE274986/GSE274987 source-study cohort.
 
-`stage63_revision_preprocessing.py` reads full retained count layers from `public_inputs/processed_inputs/{scGBM_GSE162631_GSE273274.h5ad,snGBM_GSE276177_GSE286419.h5ad,regional_GSE274987_GSE241037.h5ad}` and GSE211376 public raw counts/metadata from `public_inputs/raw_inputs/{GSE211376_raw_counts.tsv.gz,GSE211376_metadata.csv.gz}`. Set `GLIOMA_VALIDATION_ROOT` to the parent of public_inputs, and `PLOS_REVISION_DIR` to a new output directory with analysis, validation, figures and supporting_information subdirectories. Its extraction computes all-gene library totals before retaining the 37-gene panel. Archived upstream notebooks and accession mappings are part of the original S8/S13 materials. These large project inputs are not embedded here; the original small 33-gene H5ADs are insufficient substitutes.
+## Recompute from source counts
 
-`stage63b_revision_gse162631.py` additionally needs the four original tumor 10x directories under the required environment variable `GSE162631_RAW_ROOT` (public audit rows are coded P1-S1 through P4-S1), containing matrix.mtx.gz, barcodes.tsv.gz and genes.tsv.gz or features.tsv.gz. It matches source counts and uses all source genes for library totals. This route audits the retained cell universe and does not reproduce a new cell-calling/doublet/malignancy pipeline from FASTQ.
+Set `GLIOMA_VALIDATION_ROOT` to the parent of `public_inputs/`. Stage 01a requires these five files:
 
-Execute stage63, then stage63b. `prepare_meta_inputs()` in stage65 merges new patient contrasts with the frozen baseline tables `claude_outputs/public_only_submission/tables/TableS3a_ligand_contrasts.csv` and `TableS7a_uniform_annotation_patient_contrasts.csv` under GLIOMA_VALIDATION_ROOT. Run stage64 with PLOS_REVISION_DIR as its sole argument; then run stage65 to verify, plot and build S14. Use original study-local IDs for this full source-audit route; mapping to sequential public patient codes is applied at export. The supplied lightweight tables already contain the baseline contrasts, so that route does not require the historical project layout.
+- `public_inputs/processed_inputs/scGBM_GSE162631_GSE273274.h5ad`
+- `public_inputs/processed_inputs/snGBM_GSE276177_GSE286419.h5ad`
+- `public_inputs/processed_inputs/regional_GSE274987_GSE241037.h5ad`
+- `public_inputs/raw_inputs/GSE211376_raw_counts.tsv.gz`
+- `public_inputs/raw_inputs/GSE211376_metadata.csv.gz`
+
+Set `GSE162631_RAW_ROOT` to the directory containing the four original tumor 10x directories. Each contains a Matrix Market count matrix, barcode list and feature or gene list. Stage 03 also reads the two frozen patient tables `TableS3a_ligand_contrasts.csv` and `TableS7a_uniform_annotation_patient_contrasts.csv` from `claude_outputs/public_only_submission/tables/` under `GLIOMA_VALIDATION_ROOT`. These inputs must use consistent source-study identifiers. The public notebook already contains the required baseline contrasts.
+
+From this directory, run the following in order with `PLOS_REVISION_DIR` set to your chosen full-run output directory.
+
+```sh
+python code/01a_读取全基因计数.py
+python code/01b_比较预处理与注释.py
+python code/02_核对GSE162631来源计数.py
+python code/03_整理患者模型输入.py
+Rscript code/04_拟合随机效应模型.R "$PLOS_REVISION_DIR"
+python code/05a_核对患者与模型结果.py
+python code/05b_绘制返修补充图.py
+python code/05c_导出患者补充工作簿.py
+```
+
+The count workflow uses every retained gene to calculate library totals before selecting the marker panel. It audits existing cell inclusion and labels. The four minimal expression files in the original release support the primary-table reproduction and lack the full count denominator needed here.
 
 ## Interpretation
 
-REML pools arithmetic patient-level means, whereas the original signed Stouffer statistic uses directions of cohort medians and rank-test P values. GSE162631 has one positive and two negative patient contrasts, a negative median and a near-zero positive mean. Primary and uniform labels are different analysis populations. Strict filtering and 1,000-count uniform reassignment exclude GSE162631; stronger pooled evidence is not correction of the cohort. Fixed-label and pseudobulk sensitivities have distinct estimands/scales. See the manuscript and S14 for full uncertainty and eligibility reporting.
-
-The code is supplied for unrestricted reuse under the MIT license (LICENSE). Source data retain their original repository/study terms. This directory contains the revision analyses; original analyses and recoded inputs are supplied alongside it in original_analysis/ (S13 File).
+REML pools arithmetic patient means. The signed Stouffer analysis combines directions of cohort medians with rank-test P values. GSE162631 has one positive and two negative patient contrasts, a negative median and a near-zero positive mean. The primary- and uniform-label analyses use different populations. Strict filtering and reassignment at 1,000 counts exclude GSE162631. Fixed-label and pseudobulk analyses use different estimands or scales. See the manuscript and S14 for uncertainty and eligibility.
