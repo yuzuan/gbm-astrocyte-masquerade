@@ -4,9 +4,9 @@ The sensitivity analyses for PONE-D-26-35909 are described in the [October 2026 
 
 ## Refit the published models
 
-Open [06_复现返修模型.ipynb](06_复现返修模型.ipynb) in this directory and run all cells. Use the Python environment with the dependencies from the repository root, R with `metafor`, and Poppler's `pdftocairo`. `Rscript` must be on PATH, or set `RSCRIPT` to the executable. The archived [software versions](validation/) document the original run.
+Open [06_reproduce_revision_models.ipynb](06_reproduce_revision_models.ipynb) in this directory and run all cells. Use the Python environment with the dependencies from the repository root, R with `metafor`, and Poppler's `pdftocairo`. `Rscript` must be on PATH, or set `RSCRIPT` to the executable. The archived [software versions](validation/) document the original run.
 
-The notebook takes the supplied [patient contrasts and audit tables](analysis/) as inputs. It fits the 16 REML models with modified Knapp–Hartung intervals, checks the fits independently in SciPy, compares the three model tables against their published references, and regenerates S15–S17. To export the S14 workbook from those results, run `PLOS_REVISION_DIR=03_result/06_公开复现 python code/05c_导出患者补充工作簿.py` with the default paths. The notebook always writes under `06_公开复现/` within `03_result/` or within the output root selected by `PLOS_REVISION_DIR`. The full-count stages use that root directly.
+The notebook takes the supplied [patient contrasts and audit tables](analysis/) as inputs. It fits the 16 REML models with modified Knapp–Hartung intervals, checks the fits independently in SciPy, compares the three model tables against their published references, and regenerates S15–S17. To export the S14 workbook from those results, run `PLOS_REVISION_DIR=03_result/06_public_reproduction python code/05c_export_patient_workbook.py` with the default paths. The notebook always writes under `06_public_reproduction/` within `03_result/` or within the output root selected by `PLOS_REVISION_DIR`. The full-count stages use that root directly.
 
 Patient codes apply within each cohort. The source-count summaries use the corresponding Pn-S1 codes. GSE274987 is the historical analysis label for the joint GSE274986/GSE274987 source-study cohort.
 
@@ -25,14 +25,14 @@ Set `GSE162631_RAW_ROOT` to the directory containing the four original tumor 10x
 From this directory, run the following in order with `PLOS_REVISION_DIR` set to your chosen full-run output directory.
 
 ```sh
-python code/01a_读取全基因计数.py
-python code/01b_比较预处理与注释.py
-python code/02_核对GSE162631来源计数.py
-python code/03_整理患者模型输入.py
-Rscript code/04_拟合随机效应模型.R "$PLOS_REVISION_DIR"
-python code/05a_核对患者与模型结果.py
-python code/05b_绘制返修补充图.py
-python code/05c_导出患者补充工作簿.py
+python code/01a_read_full_gene_counts.py
+python code/01b_compare_preprocessing_and_annotation.py
+python code/02_audit_gse162631_source_counts.py
+python code/03_prepare_patient_model_inputs.py
+Rscript code/04_fit_random_effects_models.R "$PLOS_REVISION_DIR"
+python code/05a_validate_patient_and_model_results.py
+python code/05b_plot_supplementary_figures.py
+python code/05c_export_patient_workbook.py
 ```
 
 The count workflow uses every retained gene to calculate library totals before selecting the marker panel. It audits existing cell inclusion and labels. The four minimal expression files in the original release support the primary-table reproduction and lack the full count denominator needed here.

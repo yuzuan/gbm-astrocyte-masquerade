@@ -18,8 +18,8 @@ __pycache__/
 # Generated results, local run caches, and source-level inputs
 03_result/
 .ruff_cache/
-/PONE_D_26_35909/original_analysis/14_患者主结果复现/
-/PONE_D_26_35909/original_analysis/01_公共队列重算/
+/PONE_D_26_35909/original_analysis/14_primary_results/
+/PONE_D_26_35909/original_analysis/01_cohort_reanalysis/
 /PONE_D_26_35909/original_analysis/figures/
 /PONE_D_26_35909/original_analysis/earlier_figures/
 /PONE_D_26_35909/original_analysis/external_validation/raw/

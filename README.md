@@ -40,11 +40,11 @@ The GEO matrices, processed AnnData objects and upstream annotations are separat
 
 Stage 04 reclusters the GSE174554 cells. For historical reproduction, stage 05 reads the original `gse174554_cluster.npz` and the matching `gse174554_cluster_markers.csv` from `data/intermediate/`. Stage 10 uses the partition and CNV values recorded together by stage 05. The archived partition had 18 clusters. Re-running the clustering with the validated environment produced 16. The numerical cluster labels cannot be interchanged. The archive records sample and tissue order. Stage 05 reconstructs row keys from the RNA libraries and labels them `reconstructed_cell_id`. The archive lacks original barcodes for independently checking the order within a sample and tissue.
 
-The first command below runs a CNV analysis with the source inputs present. The second renders Figure 1. Six small [figure source tables](01_图件来源/) transcribe values, labels or schematic connections explicitly listed in the earlier Git release. Panels whose values were read from external files require the corresponding analysis output or named local input. The [per-panel input guide](01_图件来源/12_冻结作图表来源.md) lists these dependencies. Each plot is saved as a PDF master and a PNG rendered from that PDF.
+The first command below runs a CNV analysis with the source inputs present. The second renders Figure 1. Six small [figure source tables](01_figure_sources/) transcribe values, labels or schematic connections explicitly listed in the earlier Git release. Panels whose values were read from external files require the corresponding analysis output or named local input. The [per-panel input guide](01_figure_sources/12_figure_data_sources.md) lists these dependencies. Each plot is saved as a PDF master and a PNG rendered from that PDF.
 
 ```sh
-python 01_snGBM免疫参照CNV验证.py
-python 14_Fig1队列与研究设计.py
+python 01_sngbm_immune_reference_cnv.py
+python 14_fig1_cohorts_and_study_design.py
 ```
 
 The [analysis layout and executable entry points](ARCHITECTURE.md) cover both studies. The [October release](https://github.com/yuzuan/gbm-astrocyte-masquerade/tree/a63d6b46c531a786a266a1303b3b5bd7b1ba0bd3) preserves the original script filenames for earlier citations.

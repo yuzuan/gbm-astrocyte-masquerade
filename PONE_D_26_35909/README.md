@@ -8,13 +8,13 @@ Install the Python dependencies from the repository's requirements file. The rev
 
 ```sh
 python -m pip install -r requirements.txt
-python PONE_D_26_35909/original_analysis/14_复现患者主结果.py
+python PONE_D_26_35909/original_analysis/14_reproduce_primary_results.py
 cd PONE_D_26_35909/revision_analysis
-jupyter lab 06_复现返修模型.ipynb
+jupyter lab 06_reproduce_revision_models.ipynb
 ```
 
 In Jupyter, select the Python environment used to install the requirements and run all cells. The [primary analysis](original_analysis/README_PLOS_S13_FILE.txt) rebuilds eight patient-level tables from the four supplied expression objects. The [revision notebook and full count workflow](revision_analysis/README.md) fit 16 effect-size models from patient contrasts, check the results independently and regenerate supplementary figures S15–S17. For the plots corresponding to the six [manuscript TIFFs](main_figures/), use the submission renderer listed in the primary-analysis instructions.
 
-The [supporting workbooks](supporting_data/) contain S8, S9, S10, S11, S12 and S14. S13 is the original analysis code package. Patient codes are sequential within each cohort. Match patients by cohort and patient code together. Reconstruction of the original annotation and count processing requires the larger source files documented in each analysis directory. The eight output-cleared upstream notebooks are archived as source records.
+The [supporting workbooks](supporting_data/) contain S8, S9, S10, S11, S12 and S14. S13 is the original analysis code package. Patient codes are sequential within each cohort. Match patients by cohort and patient code together. Reconstruction of the original annotation and count processing requires the larger source files documented in each analysis directory. The eight [upstream notebooks](original_analysis/code/upstream_processing/) describe the source workflows in English. The [original snapshots](https://github.com/yuzuan/gbm-astrocyte-masquerade/tree/0758314b38a8db326e5196525c8137810769c2bc/PONE_D_26_35909/original_analysis/code/upstream_processing) remain available for provenance.
 
 Code is available under the MIT license. Public source datasets retain their original repository terms.
